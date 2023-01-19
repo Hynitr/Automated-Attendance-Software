@@ -14,7 +14,7 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Register Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
+    <title>Sign-in | Automated Attendance System</title>
 
     <meta name="description" content="" />
 
@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="assets/css/demo.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-4.min.css" />
+    <link href="assets/css/toastr.css" rel="stylesheet"/>
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
@@ -66,13 +68,13 @@
               <h4 class="mb-2 mt-3">Welcome Back</h4>
               <p class="mb-4">Access your automated attendance system</p>
 
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formAuthentication" class="mb-3" method="POST">
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="username"
+                    id="luname"
                     name="username"
                     placeholder="Enter your username"
                     autofocus
@@ -84,7 +86,7 @@
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
-                      id="password"
+                      id="lpword"
                       class="form-control"
                       name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
@@ -95,7 +97,7 @@
                 </div>
 
                 
-                <button type="button" class="btn btn-primary d-grid w-100">Sign up</button>
+                <button type="button" class="btn btn-primary d-grid w-100" id="lsub">Sign up</button>
               </form>
 
               
@@ -115,7 +117,8 @@
     <script src="assets/vendor/libs/popper/popper.js"></script>
     <script src="assets/vendor/js/bootstrap.js"></script>
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
+    <script src="js/toastr.js"></script>
+    <script src="assets/js/toastr.min.js"></script>
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
@@ -125,6 +128,25 @@
     <script src="assets/js/main.js"></script>
 
     <!-- Page JS -->
-
+    <script>
+    toastr.options = {
+      "closeButton": false,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-top-right",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+  </script>
+   <script src="ajax.js"></script>  
   </body>
 </html>
