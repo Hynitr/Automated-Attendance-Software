@@ -76,6 +76,9 @@ admin_details();
 
               <p class="mb-4" id="email" hidden><?php echo $t_admins['blkuser'] ?></p>
               <p class="mb-4" id="ref" hidden><?php echo md5(rand()) ?></p>
+              <p class="mb-4" id="pkk" hidden><?php echo $t_admins['pkkey'] ?></p>
+              <p class="mb-4" id="amt" hidden><?php echo $t_admins['renewamt'] ?></p>
+
 
              <button type="button" class="btn btn-primary d-grid w-100" onclick="payWithPaystack()">Renew Software</button>
               
@@ -109,9 +112,9 @@ admin_details();
         <script>
             function payWithPaystack() {
             var handler = PaystackPop.setup({
-                key: 'pk_test_d136f60195369e292262aa6b71daa381aae398fb', // Replace with your public key
+                key: document.getElementById('pkk').innerHTML, // Replace with your public key
                 email: document.getElementById('email').innerHTML,
-                amount: 50000 * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+                amount: document.getElementById('amt').innerHTML * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
                 currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
                 ref: document.getElementById('ref').innerHTML,// Replace with a reference you generated
                 callback: function(response) {
