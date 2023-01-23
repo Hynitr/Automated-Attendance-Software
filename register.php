@@ -123,7 +123,7 @@
                         <input class="form-control" type="file" id="passprt" />
                       </div>
 
-                      <a href="https://boxicons.com/" target="_blank" class="btn btn-primary">Submit Details</a>
+                      <button id="register" type="button" class="btn btn-primary">Submit Details</button>
                     </div>
                   </div>
                 </div>
@@ -175,7 +175,8 @@
 
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
- 
+    
+    <script src="ajax.js"></script>
 
   </body>
 </html>
