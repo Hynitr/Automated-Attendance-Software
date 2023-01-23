@@ -120,7 +120,7 @@ admin_details();
                 callback: function(response) {
                 //this happens after the payment is completed successfully
                 var reference = response.reference;
-                window.location.assign('./paid?ref'+ reference);
+                window.location.assign('./paid?ref='+ reference);
                 // Make an AJAX call to your server with the reference to verify the transaction
                 },
                 onClose: function() {
