@@ -1,5 +1,6 @@
 <?php
 include("functions/init.php");
+
 admin_details();
 
 if(!isset($_GET['ref'])) {
@@ -32,8 +33,23 @@ if(!isset($_GET['ref'])) {
   curl_close($curl);
   
   if ($err) {
-    echo "cURL Error #:" . $err;
+
+    echo "There was an error processing your payment <br> <a href='./expiry'>Click here to go back</a>";
+    
   } else {
-    echo $response;
+
+    $res = json_decode($response);
+    $status = $res->data->status;
+
+    if($status == 'success') {
+
+        afterpayment();
+        
+    } else {
+
+        echo "There was an error processing your payment <br> <a href='./expiry'>Click here to go back</a>";
+
+    }
+
   }
 ?>

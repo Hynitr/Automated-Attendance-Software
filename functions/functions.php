@@ -134,3 +134,18 @@ function bulksmsbalance() {
 }
 
 
+function afterpayment() {
+
+    $date = date('Y-m-d');
+
+    $nextdue = date('Y-m-d', strtotime($date. ' + 1 year'));
+
+    admin_details();
+
+    $user = $GLOBALS['t_admins']['blkuser'];
+    
+    $sql = "UPDATE `admin` SET `renew` = '$nextdue' WHERE `blkuser` = '$user'";
+    $res = query($sql);
+
+    redirect('./');
+}

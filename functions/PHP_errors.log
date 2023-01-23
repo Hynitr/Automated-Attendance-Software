@@ -1,0 +1,5 @@
+[23-Jan-2023 21:47:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function query() in C:\xampp\htdocs\attendance\functions\functions.php:142
+Stack trace:
+#0 C:\xampp\htdocs\attendance\functions\functions.php(147): afterpayment()
+#1 {main}
+  thrown in C:\xampp\htdocs\attendance\functions\functions.php on line 142
