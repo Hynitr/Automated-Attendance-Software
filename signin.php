@@ -19,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/png" href="assets/img/logo.png" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,6 +65,7 @@
               <!-- Logo -->
              
               <!-- /Logo -->
+              <img src='assets/img/logo.png' width="50" class="img-responsive img-fluid">
               <h4 class="mb-2 mt-3">Welcome Back</h4>
               <p class="mb-4">Access your automated attendance system</p>
 

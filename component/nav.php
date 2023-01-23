@@ -28,7 +28,7 @@ id="layout-navbar">
     <li class="nav-item navbar-dropdown dropdown-user dropdown">
       <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
         <div class="avatar avatar-online">
-          <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+          <img src="assets/img/logo.png" alt class="w-px-40 h-auto rounded-circle" />
         </div>
       </a>
       <ul class="dropdown-menu dropdown-menu-end">
@@ -37,11 +37,11 @@ id="layout-navbar">
             <div class="d-flex">
               <div class="flex-shrink-0 me-3">
                 <div class="avatar avatar-online">
-                  <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                  <img src="assets/img/logo.png" alt class="w-px-40 h-auto rounded-circle" />
                 </div>
               </div>
               <div class="flex-grow-1">
-                <span class="fw-semibold d-block">John Doe</span>
+                <span class="fw-semibold d-block"><?php echo ucwords($t_admins['alias']) ?></span>
                 <small class="text-muted">Admin</small>
               </div>
             </div>
@@ -51,23 +51,22 @@ id="layout-navbar">
           <div class="dropdown-divider"></div>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" href="./profile">
             <i class="bx bx-user me-2"></i>
             <span class="align-middle">My Profile</span>
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
-            <i class="bx bx-cog me-2"></i>
-            <span class="align-middle">Settings</span>
+          <a class="dropdown-item" target="_blank" href="https://portal.nigeriabulksms.com/recharge">
+            <i class="bx bx-credit-card me-2"></i>
+            <span class="align-middle">Buy SMS Credit</span>
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">
+          <a class="dropdown-item" target="_blank" href="https://hynitr.com/support">
             <span class="d-flex align-items-center align-middle">
-              <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-              <span class="flex-grow-1 align-middle">Billing</span>
-              <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+              <i class="flex-shrink-0 bx bx-phone me-2"></i>
+              <span class="flex-grow-1 align-middle">Contact Support</span>
             </span>
           </a>
         </li>
@@ -75,7 +74,7 @@ id="layout-navbar">
           <div class="dropdown-divider"></div>
         </li>
         <li>
-          <a class="dropdown-item" href="auth-login-basic.html">
+          <a class="dropdown-item" href="./logout">
             <i class="bx bx-power-off me-2"></i>
             <span class="align-middle">Log Out</span>
           </a>

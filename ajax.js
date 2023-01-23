@@ -2,6 +2,17 @@ $(document).ready(function () {
 
   //var pk = 'pk_live_7a2adba82cb1a1fc7bf752451c000e431d74bdc3';
 
+  /*$(document).ajaxStart(function(){
+    $(toastr.info("Loading...Please wait"));
+  });
+  $(document).ajaxComplete(function(){
+    toastr.clear();
+    $(toastr.error("Kindly insert your email"));
+  });*/
+
+
+
+  
 
   //signin
   $("#lsub").click(function () {
@@ -20,7 +31,7 @@ $(document).ready(function () {
           data: { username: username, password: password },
             beforeSend: function() {
                     $(toastr.clear());
-                    $("#sub").html("Submitting... Please wait");
+                    $("#lsub").html("Submitting... Please wait");
                  },
           success: function (data) {
             $(toastr.success(data));
