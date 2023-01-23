@@ -62,7 +62,7 @@
                           
                           <span class="fw-semibold d-block mb-1 text-dark">Next Renewal</span>
                           
-                          <h3 class="card-title mb-2 text-dark fa-fade" id="demo"></h3>
+                          <h3 class="card-title mb-2 text-danger" id="demo"></h3>
                           <small class="text-primary fw-semibold ">Renew Software <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>
