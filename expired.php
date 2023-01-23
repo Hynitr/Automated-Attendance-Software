@@ -1,3 +1,8 @@
+<?php
+include("functions/init.php");
+
+admin_details();
+?>
 <!DOCTYPE html>
 <html
   lang="en"
@@ -66,10 +71,13 @@
              
               <!-- /Logo -->
               <img src='assets/img/logo.png' width="50" class="img-responsive img-fluid">
-              <h4 class="mb-2 mt-3">Expired!</h4>
-              <p class="mb-4">Your software is due for renewal</p>
+              <h4 class="mb-2 mt-3">Renew Your Software</h4>
+              <p class="mb-4">Click on the button below to automatically renew your software</p>
 
-              <a target="_blank" href="https://hynitr.com/support"><button type="button" class="btn btn-primary d-grid w-100">Renew Software</button></a>
+              <p class="mb-4" id="email" hidden><?php echo $t_admins['blkuser'] ?></p>
+              <p class="mb-4" id="ref" hidden><?php echo md5(rand()) ?></p>
+
+             <button type="button" class="btn btn-primary d-grid w-100" onclick="payWithPaystack()">Renew Software</button>
               
             </div>
           </div>
@@ -96,27 +104,28 @@
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
 
-    <!-- Page JS -->
-    <script>
-    toastr.options = {
-      "closeButton": false,
-      "debug": false,
-      "newestOnTop": false,
-      "progressBar": false,
-      "positionClass": "toast-top-right",
-      "preventDuplicates": false,
-      "onclick": null,
-      "showDuration": "300",
-      "hideDuration": "1000",
-      "timeOut": "5000",
-      "extendedTimeOut": "1000",
-      "showEasing": "swing",
-      "hideEasing": "linear",
-      "showMethod": "fadeIn",
-      "hideMethod": "fadeOut"
-    }
-  </script>
-   <script src="ajax.js"></script>  
+        <script>
+            function payWithPaystack() {
+            var handler = PaystackPop.setup({
+                key: 'pk_test_d136f60195369e292262aa6b71daa381aae398fb', // Replace with your public key
+                email: document.getElementById('email').innerHTML,
+                amount: 50000 * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
+                currency: 'NGN', // Use GHS for Ghana Cedis or USD for US Dollars
+                ref: document.getElementById('ref').innerHTML,// Replace with a reference you generated
+                callback: function(response) {
+                //this happens after the payment is completed successfully
+                var reference = response.reference;
+                window.location.assign('./paid?ref'+ reference);
+                // Make an AJAX call to your server with the reference to verify the transaction
+                },
+                onClose: function() {
+                alert('Transaction was not completed, window closed.');
+                },
+            });
+            handler.openIframe();
+            }
+        </script>
   </body>
 </html>
