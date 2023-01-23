@@ -114,9 +114,16 @@
 
                      
                       <div>
-                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                        <label for="exampleFormControlTextarea1" class="form-label mb-3">Address</label>
                         <textarea class="form-control" id="address" rows="3"></textarea>
                       </div>
+
+                      <div class="mb-3 mt-3">
+                        <label for="formFile" class="form-label">Passport</label>
+                        <input class="form-control" type="file" id="passprt" />
+                      </div>
+
+                      <a href="https://boxicons.com/" target="_blank" class="btn btn-primary">Submit Details</a>
                     </div>
                   </div>
                 </div>
