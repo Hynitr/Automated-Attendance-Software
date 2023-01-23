@@ -7,7 +7,8 @@ id="layout-navbar">
 </div>
 
 <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
- 
+
+<p class="text-primary mt-auto fw-bold"><?php echo date('l, F d, Y'); ?></p>
 
   <ul class="navbar-nav flex-row align-items-center ms-auto">
 
