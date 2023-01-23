@@ -42,77 +42,80 @@
                           id="attdid" value="<?php echo strtoupper($t_admins['alias'])."/ATTD/".mt_rand(99, 9999); ?>" disabled
                         />
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Name</label>
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="exampleFormControlInput1"
-                          placeholder="name@example.com"
-                        />
+
+                      <div class="row">
+                        <div class="mb-3 col-6">
+                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                            <input
+                            type="email"
+                            class="form-control"
+                            id="fname"
+                            placeholder="ABC"
+                            />
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                            <input
+                            type="email"
+                            class="form-control"
+                            id="lname"
+                            placeholder="XYZ"
+                            />
+                        </div>
                       </div>
+                    
                       <div class="mb-3">
-                        <label for="exampleFormControlReadOnlyInput1" class="form-label">Read only</label>
-                        <input
-                          class="form-control"
-                          type="text"
-                          id="exampleFormControlReadOnlyInput1"
-                          placeholder="Readonly input here..."
-                          readonly
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlReadOnlyInputPlain1" class="form-label">Read plain</label>
-                        <input
-                          type="text"
-                          readonly
-                          class="form-control-plaintext"
-                          id="exampleFormControlReadOnlyInputPlain1"
-                          value="email@example.com"
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlSelect1" class="form-label">Example select</label>
-                        <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                          <option selected>Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                        <label for="exampleFormControlSelect1" class="form-label">Gender</label>
+                        <select class="form-select" id="gender" aria-label="Default select example">
+                          <option>Male</option>
+                          <option>Female</option>
                         </select>
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleDataList" class="form-label">Datalist example</label>
-                        <input
-                          class="form-control"
-                          list="datalistOptions"
-                          id="exampleDataList"
-                          placeholder="Type to search..."
-                        />
-                        <datalist id="datalistOptions">
-                          <option value="San Francisco"></option>
-                          <option value="New York"></option>
-                          <option value="Seattle"></option>
-                          <option value="Los Angeles"></option>
-                          <option value="Chicago"></option>
-                        </datalist>
+                      
+
+                      <div class="row">
+                        <div class="mb-3 col-6">
+                            <label for="exampleFormControlInput1" class="form-label">Telephone 1</label>
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="tel1"
+                            placeholder="0701234578"
+                            />
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label for="exampleFormControlInput1" class="form-label">Telephone 2</label>
+                            <input
+                            type="number"
+                            class="form-control"
+                            id="tel2"
+                            placeholder="09037384374"
+                            />
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="exampleFormControlSelect2" class="form-label">Example multiple select</label>
-                        <select
-                          multiple
-                          class="form-select"
-                          id="exampleFormControlSelect2"
-                          aria-label="Multiple select example"
-                        >
-                          <option selected>Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+
+                      <div class="row">
+                        <div class="mb-3 col-6">
+                            <label for="exampleFormControlInput1" class="form-label">Date of Birth</label>
+                            <input
+                            type="date"
+                            class="form-control"
+                            id="dob"
+                            />
+                        </div>
+                        <div class="mb-3 col-6">
+                            <label for="exampleFormControlInput1" class="form-label"> Department</label>
+                            <select class="form-select" id="gender" aria-label="Default select example">
+                          <option>Male</option>
+                          <option>Female</option>
                         </select>
+                        </div>
                       </div>
+
+                     
                       <div>
-                        <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="3"></textarea>
                       </div>
                     </div>
                   </div>
