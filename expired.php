@@ -66,41 +66,10 @@
              
               <!-- /Logo -->
               <img src='assets/img/logo.png' width="50" class="img-responsive img-fluid">
-              <h4 class="mb-2 mt-3">Welcome Back</h4>
-              <p class="mb-4">Access your automated attendance system</p>
+              <h4 class="mb-2 mt-3">Expired!</h4>
+              <p class="mb-4">Your software is due for renewal</p>
 
-              <form id="formAuthentication" class="mb-3" method="POST">
-                <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="luname"
-                    name="username"
-                    placeholder="Enter your username"
-                    autofocus
-                  />
-                </div>
-                
-                <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="lpword"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-
-                
-                <button type="button" class="btn btn-primary d-grid w-100" id="lsub">Sign up</button>
-              </form>
-
+              <a target="_blank" href="https://hynitr.com/support"><button type="button" class="btn btn-primary d-grid w-100">Renew Software</button></a>
               
             </div>
           </div>
@@ -151,4 +120,3 @@
    <script src="ajax.js"></script>  
   </body>
 </html>
-    
