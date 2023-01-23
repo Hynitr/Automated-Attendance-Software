@@ -18,6 +18,8 @@
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
+
+
           <div class="content-wrapper">
             <!-- Content -->
 
@@ -84,8 +86,100 @@
                 </div>  
               
               </div>
+
+               <!-- Responsive Table -->
+               <div class="card mb-5">
+                <h5 class="card-header text-dark">Absentees</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr class="text-nowrap">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>No. of times absent</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--/ Responsive Table -->
+
+              <!-- Responsive Table -->
+              <div class="card mb-5">
+                <h5 class="card-header text-dark">Late Comers</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr class="text-nowrap">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Opening Hour</th>
+                        <th>Time Signed in</th>
+                        <th>No. of late coming</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--/ Responsive Table -->
+
+
+              <!-- Responsive Table -->
+              <div class="card mb-5">
+                <h5 class="card-header text-dark">Birthdays</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table">
+                    <thead>
+                      <tr class="text-nowrap">
+                       <th>ID</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                        <td>Table cell</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!--/ Responsive Table -->
               
             </div>
+
+
             <!-- / Content -->
 
             <!-- Footer -->
@@ -96,6 +190,9 @@
 
             <div class="content-backdrop fade"></div>
           </div>
+
+
+          
           <!-- Content wrapper -->
         </div>
         <!-- / Layout page -->
