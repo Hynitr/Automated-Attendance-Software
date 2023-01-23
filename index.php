@@ -61,7 +61,8 @@
                         <div class="card-body">
                           
                           <span class="fw-semibold d-block mb-1 text-dark">Next Renewal</span>
-                          <h3 class="card-title mb-2 text-dark">$12,628</h3>
+                          
+                          <h3 class="card-title mb-2 text-dark fa-fade" id="demo"></h3>
                           <small class="text-primary fw-semibold ">Renew Software <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>
@@ -125,8 +126,7 @@
 
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
+ 
 
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </body>
 </html>

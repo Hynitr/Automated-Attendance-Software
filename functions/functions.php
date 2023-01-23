@@ -106,11 +106,30 @@ function bulksmsbalance() {
 
             $result = json_decode($result);
 
-            $symbol = $result->symbol;
 
-            $balance = $result->balance;
+            if(isset($result->symbol))
+            {
+               
+                $symbol = $result->symbol;
 
-            echo $bal = $symbol.number_format($balance);
+                $balance = $result->balance;
+    
+                echo $bal = $symbol.number_format(round($balance));
+
+            }
+            else if(isset($result->error))
+            {
+                
+                echo '<small class="text-danger"    >Error. Pls refresh</small>';
+            }
+            else
+            {
+                // Could not determine the message response.
+
+                echo '<small class="text-danger">Error. Pls refresh</small>';
+            }
+
+           
 
 }
 
