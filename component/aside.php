@@ -49,24 +49,33 @@
   </li>
   <!-- User interface -->
   <li class="menu-item">
-    <a href="https://portal.nigeriabulksms.com/recharge" class="menu-link menu-toggle">
+    <a href="https://portal.nigeriabulksms.com/recharge" class="menu-link">
       <i class="menu-icon tf-icons bx bx-money"></i>
       <div data-i18n="User interface">Buy SMS Credit</div>
     </a>
    </li>
+
+
+   <li class="menu-item">
+    <a href="./expirys" class="menu-link">
+      <i class="menu-icon tf-icons bx bx-credit-card"></i>
+      <div data-i18n="User interface">Renew Software</div>
+    </a>
+   </li>
+   
 
  
   <!-- Forms & Tables -->
   <li class="menu-header small text-uppercase"><span class="menu-header-text">Support</span></li>
   <!-- Forms -->
   <li class="menu-item">
-    <a href="./profile" class="menu-link menu-toggle">
+    <a href="./profile" class="menu-link">
       <i class="menu-icon tf-icons bx bx-user"></i>
       <div data-i18n="Form Elements">Profile</div>
     </a>
   </li>
   <li class="menu-item">
-    <a href="#" class="menu-link menu-toggle">
+    <a href="#" class="menu-link">
       <i class="menu-icon tf-icons bx bx-question-mark"></i>
       <div data-i18n="Form Layouts">Help</div>
     </a>

@@ -59,7 +59,7 @@
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                     <div class="card">
-                        <a target="_blank" href="https://hynitr.com/support">
+                        <a target="_blank" href="./expiry">
                         <div class="card-body">
                           
                           <span class="fw-semibold d-block mb-1 text-dark">Next Renewal</span>
