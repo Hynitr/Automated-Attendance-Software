@@ -33,7 +33,7 @@
                         <a href="./view">
                         <div class="card-body">
                           
-                          <span class="fw-semibold d-block mb-1 text-dark">Registered Users</span>
+                          <span class="fw-semibold d-block mb-1 text-dark">Total Users</span>
                           <h4 class="card-title mb-2 text-dark">$12,628</h4>
                           <small class="text-primary fw-semibold ">View all <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
@@ -65,7 +65,7 @@
                           <span class="fw-semibold d-block mb-1 text-dark">Next Renewal</span>
                           
                           <h4 class="card-title mb-2 text-danger" id="demo"></h4>
-                          <small class="text-primary fw-semibold ">Renew Software <i class="bx bx-right-arrow-alt"></i></small>
+                          <small class="text-primary fw-semibold ">Renew<i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>
                       </div>
@@ -77,7 +77,7 @@
                           
                           <span class="fw-semibold d-block mb-1 text-dark">SMS Unit Balance</span>
                           <h3 class="card-title mb-2 text-dark"><?php bulksmsbalance(); ?></h3>
-                          <small class="text-primary fw-semibold ">Buy Subscription <i class="bx bx-right-arrow-alt"></i></small>
+                          <small class="text-primary fw-semibold ">Recharge <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>
                       </div>

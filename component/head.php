@@ -93,4 +93,6 @@ admin_details();
         }
       }, 1000);
 </script>
+
+<p id="demo" hidden></p>
   

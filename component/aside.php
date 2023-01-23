@@ -14,10 +14,10 @@
 
 <ul class="menu-inner py-1">
   <!-- Dashboard -->
-  <li class="menu-item active">
+  <li id="home" class="menu-item">
     <a href="./" class="menu-link">
       <i class="menu-icon tf-icons bx bx-home-circle"></i>
-      <div data-i18n="Analytics">Dashboard</div>
+      <div id="dash" data-i18n="Analytics">Dashboard</div>
     </a>
   </li>
 
@@ -89,5 +89,3 @@
   </li>
 </ul>
 </aside>
-
-
