@@ -46,7 +46,7 @@ id="layout-navbar">
           </a>
         </li>
         <li>
-          <a class="dropdown-item" target="_blank" href="https://portal.nigeriabulksms.com/recharge">
+          <a class="dropdown-item" target="_blank" href="https://portal.nigeriabulksms.com">
             <i class="bx bx-credit-card me-2"></i>
             <span class="align-middle">Buy SMS Credit</span>
           </a>

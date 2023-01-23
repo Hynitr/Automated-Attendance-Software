@@ -1,0 +1,4 @@
+[23-Jan-2023 14:40:37 Africa/Lagos] PHP Warning:  Attempt to read property "symbol" on null in C:\xampp\htdocs\attendance\functions\functions.php on line 109
+[23-Jan-2023 14:45:16 Africa/Lagos] PHP Warning:  Attempt to read property "symbol" on null in C:\xampp\htdocs\attendance\functions\functions.php on line 109
+[23-Jan-2023 14:45:16 Africa/Lagos] PHP Warning:  Attempt to read property "balance" on null in C:\xampp\htdocs\attendance\functions\functions.php on line 111
+[23-Jan-2023 14:45:16 Africa/Lagos] PHP Deprecated:  number_format(): Passing null to parameter #1 ($num) of type float is deprecated in C:\xampp\htdocs\attendance\functions\functions.php on line 113

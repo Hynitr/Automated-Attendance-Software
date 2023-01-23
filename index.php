@@ -69,11 +69,11 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                     <div class="card">
-                        <a target="_blank" href="./view">
+                        <a target="_blank" href="https://portal.nigeriabulksms.com">
                         <div class="card-body">
                           
                           <span class="fw-semibold d-block mb-1 text-dark">SMS Unit Balance</span>
-                          <h3 class="card-title mb-2 text-dark">$12,628</h3>
+                          <h3 class="card-title mb-2 text-dark"><?php bulksmsbalance(); ?></h3>
                           <small class="text-primary fw-semibold ">Buy Subscription <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>

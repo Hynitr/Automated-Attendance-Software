@@ -68,3 +68,50 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     }
 
 }
+
+
+function bulksmsbalance() {
+
+            
+            admin_details();
+            // Initialize variables ( set your variables here )
+
+            $username = $GLOBALS['t_admins']['blkuser'];
+
+            $password = $GLOBALS['t_admins']['blkpword'];
+
+            // Set your domain's API URL
+
+            $api_url  = 'https://portal.nigeriabulksms.com/api/';
+
+
+            //Create the message data
+
+            $data = array('username'=>$username, 'password'=>$password, 'action'=>'balance');
+
+            //URL encode the message data
+
+            $data = http_build_query($data);
+
+            //Send the message
+
+            $ch = curl_init(); // Initialize a cURL connection
+
+            curl_setopt($ch,CURLOPT_URL, $api_url);
+            curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch,CURLOPT_POST, true);
+            curl_setopt($ch,CURLOPT_POSTFIELDS, $data);
+
+            $result = curl_exec($ch);
+
+            $result = json_decode($result);
+
+            $symbol = $result->symbol;
+
+            $balance = $result->balance;
+
+            echo $bal = $symbol.number_format($balance);
+
+}
+
+
