@@ -179,7 +179,7 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
         
 
     $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname')";
-    //$res = query($sql);
+    $res = query($sql);
 
 
 }
