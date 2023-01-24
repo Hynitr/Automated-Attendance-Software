@@ -74,21 +74,65 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) && isset($_POST['gender']) && isset($_POST['tel1']) && isset($_POST['tel2']) && isset($_POST['dob']) && isset($_POST['category']) && isset($_POST['address']) && isset($_FILES['passport'])) {
 
 
-    $fname = clean(escape($_POST['fname']));
-    $lname = clean(escape($_POST['lname']));
-    $attdid = clean(escape($_POST['attdid']));
-    $gender = clean(escape($_POST['gender']));
-    $tel1 = clean(escape($_POST['tel1']));
-    $tel2 = clean(escape($_POST['tel2']));
-    $dob = clean(escape($_POST['dob']));
-    $category = clean(escape($_POST['category']));
-    $address = clean(escape($_POST['address']));
+    $fname      = clean(escape($_POST['fname']));
+    $lname      = clean(escape($_POST['lname']));
+    $attdid     = clean(escape($_POST['attdid']));
+    $gender     = clean(escape($_POST['gender']));
+    $tel1       = clean(escape($_POST['tel1']));
+    $tel2       = clean(escape($_POST['tel2']));
+    $dob        = clean(escape($_POST['dob']));
+    $category   = clean(escape($_POST['category']));
+    $address    = clean(escape($_POST['address']));
+
+    $passport   = $_FILES['passport'];
+
+
+    //submit passport
+
+    $target_dir = "../upload/passport/";
+    $target_file =  basename($_FILES["passport"]["name"]);
+    $targetFilePath = $target_dir . $target_file;
+    $uploadOk = 1;
+    $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+    
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "jpeg") {
+        echo "Sorry, only JPG and JPEG files are allowed.";
+        $uploadOk = 0;
+    } else {
+    // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            echo "Sorry, the passport was not uploaded.";
+        // if everything is ok, try to upload file
+        } else {
+            
+            echo '
+            <script>
+            $(toastr.clear());
+            $(toastr.info("Uploading passport..."));
+            </script>
+            ';
+            move_uploaded_file($_FILES["passport"]["tmp_name"], $targetFilePath);
+
+        }
+    }
 
     $date = date("Y-m-d");
 
 
-    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date')";
+    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file')";
     $res = query($sql);
+
+    
+            echo '
+            <script>
+            $(toastr.clear());
+            $(toastr.info("Generating ID Card..."));
+            </script>
+            ';
+
+
 }
 
 

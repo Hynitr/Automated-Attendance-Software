@@ -1,5 +1,0 @@
-[24-Jan-2023 02:01:16 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function cleaan() in C:\xampp\htdocs\attendance\functions\functions.php:77
-Stack trace:
-#0 C:\xampp\htdocs\attendance\functions\init.php(7): include()
-#1 {main}
-  thrown in C:\xampp\htdocs\attendance\functions\functions.php on line 77
