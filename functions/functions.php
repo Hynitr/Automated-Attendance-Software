@@ -181,11 +181,9 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
     $res = query($sql);
 
     echo '
+    Upload Complete...
     <script>
-    $(toastr.clear());
-    $(toastr.success("Upload Completed..."));
-
-    window.location.assign("./registersuccess?ref='.$d.'");
+     location.href("./registersuccess?ref='.$d.'");
     </script>
     ';
 
