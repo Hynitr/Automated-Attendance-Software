@@ -69,6 +69,12 @@ $(document).ready(function () {
 
         } else {
 
+          if(dob == "" || dob == null) {
+
+            $(toastr.error("Please date of birth"));
+
+          }else {
+
           if(address == "" || address == null) {
 
             $(toastr.error("Kindly provide valid address"));
@@ -81,6 +87,7 @@ $(document).ready(function () {
             } else {
 
               $(toastr.clear());
+              $("#register").attr("disabled", true);
               $("#register").html("Submitting... Please wait");
 
 
@@ -107,6 +114,7 @@ $(document).ready(function () {
               });
 
             }
+          }
           }
         }
 

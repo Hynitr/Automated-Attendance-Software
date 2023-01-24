@@ -83,7 +83,7 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
     $gender     = clean(escape($_POST['gender']));
     $tel1       = clean(escape($_POST['tel1']));
     $tel2       = clean(escape($_POST['tel2']));
-    $dob        = clean(escape($_POST['dob']));
+    $dob        = $_POST['dob'];
     $category   = clean(escape($_POST['category']));
     $address    = clean(escape($_POST['address']));
 
@@ -180,6 +180,14 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
 
     $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname')";
     $res = query($sql);
+
+    echo '
+    <script>
+    $(toastr.clear());
+    $(toastr.success("Upload Completed..."));
+    window.location.assign ="./registersucces";
+    </script>
+    ';
 
 
 }
