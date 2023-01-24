@@ -70,6 +70,28 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 }
 
 
+//register users
+if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) && isset($_POST['gender']) && isset($_POST['tel1']) && isset($_POST['tel2']) && isset($_POST['dob']) && isset($_POST['category']) && isset($_POST['address']) && isset($_FILES['passport'])) {
+
+
+    $fname = clean(escape($_POST['fname']));
+    $lname = clean(escape($_POST['lname']));
+    $attdid = clean(escape($_POST['attdid']));
+    $gender = clean(escape($_POST['gender']));
+    $tel1 = clean(escape($_POST['tel1']));
+    $tel2 = clean(escape($_POST['tel2']));
+    $dob = clean(escape($_POST['dob']));
+    $category = clean(escape($_POST['category']));
+    $address = clean(escape($_POST['address']));
+
+    $date = date("Y-m-d");
+
+
+    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date')";
+    $res = query($sql);
+}
+
+
 function bulksmsbalance() {
 
             
@@ -148,4 +170,21 @@ function afterpayment() {
     $res = query($sql);
 
     redirect('./');
+}
+
+
+function getcategories() {
+
+    $sql = "SELECT * FROM `category` ORDER BY `category` ASC";
+    $res = query($sql);
+
+    while($row = mysqli_fetch_array($res)) {
+
+        echo '
+        
+        <option>'.$row['category'].'</option>
+
+        ';
+    }
+
 }

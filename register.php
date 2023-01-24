@@ -105,9 +105,8 @@
                         </div>
                         <div class="mb-3 col-6">
                             <label for="exampleFormControlInput1" class="form-label"> Department</label>
-                            <select class="form-select" id="gender" aria-label="Default select example">
-                          <option>Male</option>
-                          <option>Female</option>
+                            <select class="form-select" id="category" aria-label="Default select example">
+                            <?php echo getcategories(); ?>
                         </select>
                         </div>
                       </div>
@@ -119,7 +118,7 @@
                       </div>
 
                       <div class="mb-3 mt-3">
-                        <label for="formFile" class="form-label">Passport</label>
+                        <label for="formFile" class="form-label">Passport (jpg format only)</label>
                         <input class="form-control" type="file" id="passprt" />
                       </div>
 
@@ -175,6 +174,28 @@
 
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
+    <script src="js/toastr.js"></script>
+    <script src="assets/js/toastr.min.js"></script>
+    <!-- Page JS -->
+    <script>
+        toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        }
+    </script>
     
     <script src="ajax.js"></script>
 

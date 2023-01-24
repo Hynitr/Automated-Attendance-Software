@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  //var pk = 'pk_live_7a2adba82cb1a1fc7bf752451c000e431d74bdc3';
+
 
   /*$(document).ajaxStart(function(){
     $(toastr.info("Loading...Please wait"));
@@ -42,115 +42,75 @@ $(document).ready(function () {
   });
 
 
+  //register
+  $("#register").click(function () {
 
-  //book appountment with doctor
-  $("#bkdoc").click(function () {
-    var aptdate = $("#aptdte").val();
-    var bkmsg = $("#bkmsg").val();
+    var fname     = $("#fname").val();
+    var lname     = $("#lname").val();
+    var attdid    = $("#attdid").val();
+    var gender    = $("#gender").val();
+    var tel1      = $("#tel1").val();
+    var tel2      = $("#tel2").val();
+    var dob       = $("#dob").val();
+    var category  = $("#category").val();
+    var address   = $("#address").val();
+    var passport  = $("#passprt")[0].files[0];
 
-    if (aptdate == "" || aptdate == null) {
-      $(toastr.error("Please pick a date for your appointment"));
+    if (fname == "" || fname == null) {
+      $(toastr.error("Kindly insert First Name"));
     } else {
-      if (bkmsg == "" || bkmsg == null) {
-        $(toastr.error("State the reason for booking an appointment"));
+      if (lname == "" || lname == null) {
+        $(toastr.error("Kindly insert Last Name"));
       } else {
-        $.ajax({
-          type: "post",
-          url: "servl/init.php",
-          data: { aptdate: aptdate, bkmsg: bkmsg },
-            beforeSend: function() {
-                    $(toastr.clear());
-                    $("#bkdoc").html("Submitting... Please wait");
-                 },
-          success: function (data) {
-            $(toastr.success(data));
-          },
-        });
-      }
-    }
-  });
+       
+        if(tel1 == "" || tel1 == null) {
 
+          $(toastr.error("Kindly insert Telephone 1"));
 
-  
-  //save profile details changes
-  $("#updtpro").click(function () {
-
-    var tel = $("#phoneNumber").val();
-    var add = $("#address").val();
-    var state = $("#state").val();
-    var genotype = $("#genotype").val();
-    var blood = $("#blood").val();
-    var gender = $("#gender").val();
-    var lang = $("#lang").val();
-
-    if(tel == null || tel == '') {
-
-      $(toastr.error("Please input a phone number"));
-
-    } else {
-
-    if(add == null || add == '') {
-
-      $(toastr.error("Please provide your address"));
-
-    } else {
-
-    if(state == null || state == '') {
-
-      $(toastr.error("Please provide your state"));
-
-    } else {
-
-      if(genotype == null || genotype == '') {
-
-        $(toastr.error("We need your genotype"));
-  
-      } else {
-
-
-        if(blood == null || blood == '') {
-
-          $(toastr.error("We need your blood group"));
-    
         } else {
 
-          if(gender == null || gender == '') {
+          if(address == "" || address == null) {
 
-            $(toastr.error("We need your gender"));
-      
+            $(toastr.error("Kindly provide valid address"));
           } else {
 
+            if(passport == "" || passport == null) {
 
-            if(lang == null || lang == '') {
+              $(toastr.error("Kindly provide valid passport"));
 
-              $(toastr.error("What your language"));
-        
             } else {
 
-            $.ajax({
-              type: "post",
-              url: "servl/init.php",
-              data: {tel: tel, add: add, state: state, genotype: genotype, blood: blood, gender: gender, lang: lang},
-              beforeSend: function() {
-                $(toastr.clear());
-                $("#updtpro").html("Submitting... Please wait");
-             },
-            success: function (data) {
-              $(toastr.success(data));
-            },
-            });
-      
-    }
-        
-  }
+              $(toastr.clear());
+              $("#register").html("Submitting... Please wait");
 
 
-}
+              var formData = new FormData();
+              formData.append("fname", fname);
+              formData.append("lname", lname);
+              formData.append("attdid", attdid);
+              formData.append("gender", gender);
+              formData.append("tel1", tel1);
+              formData.append("tel2", tel2);
+              formData.append("dob", dob);
+              formData.append("category", category);
+              formData.append("address", address);
+              formData.append("passport", passport);
+              $.ajax({
+                url: "functions/init.php",
+                type: "POST",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                  $(toastr.success(data));
+                }
+              });
 
-}
+            }
+          }
+        }
 
-}
-    }
+      }
     }
   });
 

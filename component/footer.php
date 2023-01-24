@@ -8,6 +8,6 @@
     , Developed by
     <a href="https://hynitr.com" target="_blank" class="footer-link fw-bolder">Hynitr</a>
   </div>
-  
+  <p id="demo" hidden></p>
 </div>
 </footer>
