@@ -168,8 +168,6 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
     </script>
     ';
 
-      //display generated file
-      echo '<img src="'.$PNG_WEB_DIR.basename($filename).'" /><hr/>';  
     
     //generate unqiue ID
     QRcode::png($GLOBALS['t_admins']['website'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
@@ -186,6 +184,7 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
     <script>
     $(toastr.clear());
     $(toastr.success("Upload Completed..."));
+
     window.location.assign("./registersuccess?ref='.$d.'");
     </script>
     ';
