@@ -45,6 +45,7 @@
         
             if(!QRinput::check($mode, $size, $setData)) {
                 throw new Exception('Error m:'.$mode.',s:'.$size.',d:'.join(',',$setData));
+                return null;
             }
             
             $this->mode = $mode;
@@ -282,6 +283,7 @@
         {
             if ($version < 0 || $version > QRSPEC_VERSION_MAX || $level > QR_ECLEVEL_H) {
                 throw new Exception('Invalid version no');
+                return NULL;
             }
             
             $this->version = $version;
@@ -618,6 +620,7 @@
                 $ver = QRspec::getMinimumVersion((int)(($bits + 7) / 8), $this->level);
                 if($ver < 0) {
                     throw new Exception('WRONG VERSION');
+                    return -1;
                 } else if($ver > $this->getVersion()) {
                     $this->setVersion($ver);
                 } else {

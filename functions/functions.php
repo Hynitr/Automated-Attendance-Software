@@ -73,6 +73,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 //register users
 if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) && isset($_POST['gender']) && isset($_POST['tel1']) && isset($_POST['tel2']) && isset($_POST['dob']) && isset($_POST['category']) && isset($_POST['address']) && isset($_FILES['passport'])) {
 
+    admin_details();
+
+
 
     $fname      = clean(escape($_POST['fname']));
     $lname      = clean(escape($_POST['lname']));
@@ -94,6 +97,13 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
     $targetFilePath = $target_dir . $target_file;
     $uploadOk = 1;
     $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+    
+    $date = date("Y-m-d");
+
+
+
+
+
 
     
     // Allow certain file formats
@@ -118,19 +128,58 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
         }
     }
 
-    $date = date("Y-m-d");
 
 
-    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file')";
-    $res = query($sql);
 
+
+
+    //QR CODE
+    $d = md5($attdid);
+    $dname = "$d.png";
+      
+    //set it to writable location, a place for temp generated PNG files
+    $PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
     
-            echo '
-            <script>
-            $(toastr.clear());
-            $(toastr.info("Generating ID Card..."));
-            </script>
-            ';
+    //html PNG location prefix
+    $PNG_WEB_DIR = '../upload/qrcode/';
+    
+    include "../Qr/qrlib.php";    
+
+
+    //ofcourse we need rights to create temp dir
+    if (!file_exists($PNG_TEMP_DIR))
+    mkdir($PNG_TEMP_DIR);
+    
+    
+    $filename = $PNG_WEB_DIR.$dname;
+    
+    //processing form input
+    //remember to sanitize user input in real-life solution !!!
+    $errorCorrectionLevel = 'H'; 
+
+    $matrixPointSize = 4;
+
+
+    echo '
+    <script>
+    $(toastr.clear());
+    $(toastr.info("Generating ID Card..."));
+    </script>
+    ';
+
+      //display generated file
+      echo '<img src="'.$PNG_WEB_DIR.basename($filename).'" /><hr/>';  
+    
+    //generate unqiue ID
+    QRcode::png($GLOBALS['t_admins']['website'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
+
+
+     // benchmark
+     QRtools::timeBenchmark();  
+        
+
+    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname')";
+    //$res = query($sql);
 
 
 }
