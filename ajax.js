@@ -87,7 +87,6 @@ $(document).ready(function () {
             } else {
 
               $(toastr.clear());
-              $("#register").attr("disabled", true);
               $("#register").html("Submitting... Please wait");
 
 

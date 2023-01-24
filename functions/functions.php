@@ -49,9 +49,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
         $_SESSION['login'] = $username;
         echo '
-        Almost Complete...
+        Logging in...
         <script>
-        window.location.href ="./"
+        window.location.assign("./");
         </script>
         ';
 
@@ -135,7 +135,8 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
 
     //QR CODE
     $d = md5($attdid);
-    $dname = "$d.png";
+    $pass = str_replace('/', '', $attdid);
+    $dname = "$pass.png";
       
     //set it to writable location, a place for temp generated PNG files
     $PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
@@ -178,14 +179,14 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
      QRtools::timeBenchmark();  
         
 
-    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname')";
+    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`, `qrid`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname', '$d')";
     $res = query($sql);
 
     echo '
     <script>
     $(toastr.clear());
     $(toastr.success("Upload Completed..."));
-    window.location.assign ="./registersucces";
+    window.location.assign("./registersuccess?ref='.$d.'");
     </script>
     ';
 
