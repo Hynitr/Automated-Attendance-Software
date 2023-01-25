@@ -271,3 +271,14 @@ function getcategories() {
     }
 
 }
+
+
+function totalusers() {
+
+    $sql = "SELECT COUNT(*) AS `allusers` FROM `users`";
+    $res = query($sql);
+    $row = mysqli_fetch_array($res);
+
+    echo number_format($row['allusers']);
+
+}
