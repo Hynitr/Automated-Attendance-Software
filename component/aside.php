@@ -57,7 +57,7 @@
 
 
    <li class="menu-item">
-    <a href="./expirys" class="menu-link">
+    <a href="./expiry" class="menu-link">
       <i class="menu-icon tf-icons bx bx-credit-card"></i>
       <div data-i18n="User interface">Renew Software</div>
     </a>

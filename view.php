@@ -24,158 +24,28 @@
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <div class="row">
-               
-                <div class="col-lg-6 col-md-4 order-1">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <div class="card">
-                        <a href="./view">
-                        <div class="card-body">
-                          
-                          <span class="fw-semibold d-block mb-1 text-dark">Total Users</span>
-                          <h4 class="card-title mb-2 text-dark"><?php echo totalusers(); ?></h4>
-                          <small class="text-primary fw-semibold ">View all <i class="bx bx-right-arrow-alt"></i></small>
+
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> View Users</h4>
+
+                <!-- Form controls -->
+                <div class="col-md-12">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                    <div class="mb-3 col-12">
+                            <label for="exampleFormControlInput1" class="form-label"> Select Department</label>
+                            <select class="form-select" id="category" aria-label="Default select example">
+                            <option>Select Option</option>
+                            <?php echo getcategories(); ?>
+                        </select>
                         </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                        <a href="./absentee">
-                        <div class="card-body">
-                          
-                          <span class="fw-semibold d-block mb-1 text-dark">Absentee</span>
-                          <h4 class="card-title mb-2 text-dark">$12,628</h4>
-                          <small class="text-primary fw-semibold ">View all <i class="bx bx-right-arrow-alt"></i></small>
-                        </div>
-                        </a>
-                      </div>
+
                     </div>
                   </div>
                 </div>
-
-                <div class="col-lg-6 col-md-4 order-1">
-                  <div class="row">
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                        <a target="_blank" href="./expiry">
-                        <div class="card-body">
-                          
-                          <span class="fw-semibold d-block mb-1 text-dark">Next Renewal</span>
-                          
-                          <h4 class="card-title mb-2 text-danger" id="demo"></h4>
-                          <small class="text-primary fw-semibold ">Renew<i class="bx bx-right-arrow-alt"></i></small>
-                        </div>
-                        </a>
-                      </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
-                        <a target="_blank" href="https://portal.nigeriabulksms.com">
-                        <div class="card-body">
-                          
-                          <span class="fw-semibold d-block mb-1 text-dark">SMS Unit Balance</span>
-                          <h3 class="card-title mb-2 text-dark"><?php bulksmsbalance(); ?></h3>
-                          <small class="text-primary fw-semibold ">Recharge <i class="bx bx-right-arrow-alt"></i></small>
-                        </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>  
               
-              </div>
 
-               <!-- Responsive Table -->
-               <div class="card mb-5">
-                <h5 class="card-header text-dark">Absentees</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr class="text-nowrap">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>No. of times absent</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Responsive Table -->
+                <div id="res"></div>
 
-              <!-- Responsive Table -->
-              <div class="card mb-5">
-                <h5 class="card-header text-dark">Late Comers</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr class="text-nowrap">
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th>Opening Hour</th>
-                        <th>Time Signed in</th>
-                        <th>No. of late coming</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Responsive Table -->
-
-
-              <!-- Responsive Table -->
-              <div class="card mb-5">
-                <h5 class="card-header text-dark">Birthdays</h5>
-                <div class="table-responsive text-nowrap">
-                  <table class="table">
-                    <thead>
-                      <tr class="text-nowrap">
-                       <th>ID</th>
-                        <th>Name</th>
-                        <th>Role</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <!--/ Responsive Table -->
               
             </div>
 
@@ -223,6 +93,35 @@
 
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
+
+    <script type="text/javascript">
+		
+		document.getElementById('category').addEventListener('change', myfun);
+
+       
+
+		function myfun()
+		{
+
+      var category = $("#category").val();
+
+			var xhr = new  XMLHttpRequest();    
+			xhr.open('GET', './callusers?cat='+ category, true);
+
+			xhr.onload = function ()
+			{
+				if (xhr.status == 200) {
+					//document.write(this.responseText);
+					document.getElementById('res').innerHTML=xhr.responseText;
+				} else {
+
+				  document.getElementById('res').innerHTML="Invalid Request";
+				}
+			}
+
+			xhr.send();
+		}
+	</script>
  
 
   </body>

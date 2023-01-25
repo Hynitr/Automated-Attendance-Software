@@ -264,7 +264,6 @@ function getcategories() {
     while($row = mysqli_fetch_array($res)) {
 
         echo '
-        
         <option>'.$row['category'].'</option>
 
         ';
@@ -272,6 +271,29 @@ function getcategories() {
 
 }
 
+
+function getcategoriesbytype($cat) {
+
+    $sql = "SELECT * FROM `users` WHERE `department` = '$cat' ORDER BY `Last Name` ASC";
+    $res = query($sql);
+
+    while($row = mysqli_fetch_array($res)) {
+
+        echo '
+        <tr>
+        <td>'.$row['AttendanceID'].'</td>
+        <td>'.$row['Last Name'].' '.$row['First Name'].'</td>
+        <td>'.date('D, M d, Y', strtotime($row['dob'])).'</td>
+        <td>'.$row['Gender'].'</td>
+        <td><a href="tel:'.$row['Telephone1'].'">'.$row['Telephone1'].'</a><br/><br/><a href="tel: '.$row['Telephone2'].'">'.$row['Telephone2'].'</a></td>
+        <td>'.$row['Address'].'</td>
+        <td></td>
+      </tr>
+
+        ';
+    }
+
+}
 
 function totalusers() {
 
