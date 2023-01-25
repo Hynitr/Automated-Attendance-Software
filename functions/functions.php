@@ -192,6 +192,102 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
 }
 
 
+
+//edit users
+//register users
+if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) && isset($_POST['gender']) && isset($_POST['tel1']) && isset($_POST['tel2']) && isset($_POST['dob']) && isset($_POST['category']) && isset($_POST['address']) && isset($_POST['roletype']) || isset($_FILES['passport'])) {
+
+    admin_details();
+
+
+
+    $fname      = clean(escape($_POST['fname']));
+    $lname      = clean(escape($_POST['lname']));
+    $attdid     = clean(escape($_POST['attdid']));
+    $gender     = clean(escape($_POST['gender']));
+    $tel1       = clean(escape($_POST['tel1']));
+    $tel2       = clean(escape($_POST['tel2']));
+    $dob        = $_POST['dob'];
+    $category   = clean(escape($_POST['category']));
+    $address    = clean(escape($_POST['address']));
+
+
+    //update db
+    $sql = "UPDATE users SET `First Name`='$fname', `Last Name`='$lname', `Gender`='$gender', `Telephone1`='$tel1', `Telephone2`='$tel2', `dob`='$dob', `department`='$category', `address`='$address' WHERE `AttendanceID`='$attdid'";
+    $res = query($sql);
+
+
+    if(isset($_FILES['passport'])) {
+
+
+        $passport   = $_FILES['passport'];
+
+
+        //submit passport
+    
+        $target_dir = "../upload/passport/";
+        $target_file =  basename($_FILES["passport"]["name"]);
+        $targetFilePath = $target_dir . $target_file;
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION); 
+
+        
+        // Allow certain file formats
+        if($imageFileType != "jpg" && $imageFileType != "jpeg") {
+    
+            echo '
+            <script>
+            $(toastr.clear());
+            $(toastr.error("Sorry, only JPG and JPEG files are allowed."));
+            </script>
+            ';
+    
+            $uploadOk = 0;
+        } else {
+        // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+    
+                echo '
+                <script>
+                $(toastr.clear());
+                $(toastr.error("Sorry, the passport was not uploaded."));
+                </script>
+                ';
+    
+                
+            // if everything is ok, try to upload file
+            } else {
+                
+                move_uploaded_file($_FILES["passport"]["tmp_name"], $targetFilePath);
+
+                //update file in db
+
+                $ssl = "UPDATE users SET `Passport`='$target_file' WHERE `AttendanceID`='$attdid'";
+                $ress = query($ssl);
+
+    
+            }
+
+
+    }
+                    
+
+               
+                echo '
+                <script>
+                $(toastr.clear());
+                $(toastr.success("Edited Successfully"));
+                //location.assign("./registersuccess?ref='.$d.'");
+                </script>
+                ';
+
+
+        }
+        
+}
+
+
+
 function bulksmsbalance() {
 
             
@@ -342,10 +438,23 @@ function getcategoriesbytype($cat) {
 }
 
 
-function specificuser($ref) {
+function getspecificuser($ref) {
 
     $sql  = "SELECT * FROM users WHERE `AttendanceID` = '$ref'";
-    $res  = query($res);
+    $res  = query($sql);
+
+    if(row_count($res) == "" || row_count($res) == null) {
+
+        redirect("./register");
+
+        die();
+
+    } else {
+
+
+        $GLOBALS['specific_user'] = mysqli_fetch_array($res);
+
+    }
 
 }
 

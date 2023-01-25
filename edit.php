@@ -10,6 +10,8 @@ if(!isset($_GET['ref'])) {
 
     $ref = clean(escape($_GET['ref']));
 
+    getspecificuser($ref);
+
  ?>
   <body>
     <!-- Layout wrapper -->
@@ -36,7 +38,7 @@ if(!isset($_GET['ref'])) {
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Edit Users</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Edit <?php echo $specific_user['Last Name']." ".$specific_user['First Name'] ?></h4>
 
               <div class="row">
                 
@@ -46,12 +48,12 @@ if(!isset($_GET['ref'])) {
                 <div class="col-md-12">
                   <div class="card mb-4">
                     <div class="card-body">
-                    <div class="mb-3">
+                    <div class="mb-3" >
                         <label for="exampleFormControlInput1" class="form-label">Attendance ID</label>
                         <input
                           type="text"
                           class="form-control"
-                          id="attdid" value="<?php echo strtoupper($t_admins['alias'])."/ATTD/".mt_rand(99, 9999); ?>" disabled
+                          id="attdid" value="<?php echo $specific_user['AttendanceID'] ?>" disabled
                         />
                       </div>
 
@@ -61,7 +63,7 @@ if(!isset($_GET['ref'])) {
                             <input
                             type="email"
                             class="form-control"
-                            id="fname"
+                            id="fname" value="<?php echo $specific_user['First Name'] ?>"
                             placeholder="ABC"
                             />
                         </div>
@@ -70,7 +72,7 @@ if(!isset($_GET['ref'])) {
                             <input
                             type="email"
                             class="form-control"
-                            id="lname"
+                            id="lname" value="<?php echo $specific_user['Last Name'] ?>"
                             placeholder="XYZ"
                             />
                         </div>
@@ -79,6 +81,7 @@ if(!isset($_GET['ref'])) {
                       <div class="mb-3">
                         <label for="exampleFormControlSelect1" class="form-label">Gender</label>
                         <select class="form-select" id="gender" aria-label="Default select example">
+                        <option><?php echo $specific_user['Gender'] ?></option>
                           <option>Male</option>
                           <option>Female</option>
                         </select>
@@ -91,7 +94,7 @@ if(!isset($_GET['ref'])) {
                             <input
                             type="number"
                             class="form-control"
-                            id="tel1"
+                            id="tel1" value="<?php echo $specific_user['Telephone1'] ?>"
                             placeholder="0701234578"
                             />
                         </div>
@@ -100,7 +103,7 @@ if(!isset($_GET['ref'])) {
                             <input
                             type="number"
                             class="form-control"
-                            id="tel2"
+                            id="tel2" value="<?php echo $specific_user['Telephone2'] ?>"
                             placeholder="09037384374"
                             />
                         </div>
@@ -112,12 +115,13 @@ if(!isset($_GET['ref'])) {
                             <input
                             type="date"
                             class="form-control"
-                            id="dob"
+                            id="dob" value="<?php echo $specific_user['dob'] ?>"
                             />
                         </div>
                         <div class="mb-3 col-6">
                             <label for="exampleFormControlInput1" class="form-label"> Department</label>
                             <select class="form-select" id="category" aria-label="Default select example">
+                             <option><?php echo $specific_user['department'] ?></option>
                             <?php echo getcategories(); ?>
                         </select>
                         </div>
@@ -126,15 +130,15 @@ if(!isset($_GET['ref'])) {
                      
                       <div>
                         <label for="exampleFormControlTextarea1" class="form-label mb-3">Address</label>
-                        <textarea class="form-control" id="address" rows="3"></textarea>
+                        <textarea class="form-control" id="address" rows="3"><?php echo $specific_user['Address'] ?></textarea>
                       </div>
 
                       <div class="mb-3 mt-3">
                         <label for="formFile" class="form-label">Passport (jpg format only)</label>
-                        <input class="form-control" type="file" id="passprt" />
+                        <input class="form-control" type="file" id="passprt"/>
                       </div>
 
-                      <button id="register" type="button" class="btn btn-primary">Submit Details</button>
+                      <button id="update" type="button" class="btn btn-primary">Update Details</button>
                     </div>
                   </div>
                 </div>
