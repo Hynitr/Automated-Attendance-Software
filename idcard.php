@@ -1,12 +1,12 @@
 <?php include("component/head.php"); 
 
-if(!isset($_GET['ref'])) {
+if(!isset($_GET['id'])) {
 
   redirect("./register");
 
 } else {
 
-  $ref = clean(escape($_GET['ref']));
+  $ref = clean(escape($_GET['id']));
 
 }
 
