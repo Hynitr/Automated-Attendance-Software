@@ -5,7 +5,9 @@ admin_details();
 
 if(!isset($_GET['ref'])) {
 
-    redirect("./expired");
+    redirect("./expiry");
+
+    die();
 }
 
   $skkey = $t_admins['skkey'];

@@ -4,6 +4,8 @@ if(!isset($_GET['ref'])) {
 
   redirect("./register");
 
+  die();
+
 } else {
 
   $ref = clean(escape($_GET['ref']));

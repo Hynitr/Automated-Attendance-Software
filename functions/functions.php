@@ -301,7 +301,10 @@ function getcategoriesbytype($cat) {
                 <a class="dropdown-item" href="./delete?ref='.$row['AttendanceID'].'"
                 ><i class="bx bx-trash me-1"></i> Delete</a
                 >
-            </div>
+                <a class="dropdown-item" href="./idcard?ref='.$row['AttendanceID'].'"
+                ><i class="bx bx-card me-1"></i> Download ID Card</a
+                >
+                </div>
             </div>
         </td>
       </tr>
