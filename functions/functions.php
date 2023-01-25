@@ -116,78 +116,62 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
             echo "Sorry, the passport was not uploaded.";
         // if everything is ok, try to upload file
         } else {
+
+
             
-            echo '
-            <script>
-            $(toastr.clear());
-            $(toastr.info("Uploading passport..."));
-            </script>
-            ';
             move_uploaded_file($_FILES["passport"]["tmp_name"], $targetFilePath);
 
+
+                //QR CODE
+                $d = md5($attdid);
+                $pass = str_replace('/', '', $attdid);
+                $dname = "$pass.png";
+                
+                //set it to writable location, a place for temp generated PNG files
+                $PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
+                
+                //html PNG location prefix
+                $PNG_WEB_DIR = '../upload/qrcode/';
+                
+                include "../Qr/qrlib.php";    
+
+
+                //ofcourse we need rights to create temp dir
+                if (!file_exists($PNG_TEMP_DIR))
+                mkdir($PNG_TEMP_DIR);
+                
+                
+                $filename = $PNG_WEB_DIR.$dname;
+                
+                //processing form input
+                //remember to sanitize user input in real-life solution !!!
+                $errorCorrectionLevel = 'H'; 
+
+                $matrixPointSize = 4;
+
+               
+                //generate unqiue ID
+                QRcode::png($GLOBALS['t_admins']['website'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
+
+
+                // benchmark
+                QRtools::timeBenchmark();  
+                    
+
+                $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`, `qrid`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname', '$d')";
+                $res = query($sql);
+
+                echo '
+                <script>
+                $(toastr.clear());
+                $(toastr.success("Upload Complete..."));
+                location.assign("./registersuccess?ref='.$d.'");
+                </script>
+                ';
+
+
         }
-    }
-
-
-
-
-
-
-    //QR CODE
-    $d = md5($attdid);
-    $pass = str_replace('/', '', $attdid);
-    $dname = "$pass.png";
-      
-    //set it to writable location, a place for temp generated PNG files
-    $PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
-    
-    //html PNG location prefix
-    $PNG_WEB_DIR = '../upload/qrcode/';
-    
-    include "../Qr/qrlib.php";    
-
-
-    //ofcourse we need rights to create temp dir
-    if (!file_exists($PNG_TEMP_DIR))
-    mkdir($PNG_TEMP_DIR);
-    
-    
-    $filename = $PNG_WEB_DIR.$dname;
-    
-    //processing form input
-    //remember to sanitize user input in real-life solution !!!
-    $errorCorrectionLevel = 'H'; 
-
-    $matrixPointSize = 4;
-
-
-    echo '
-    <script>
-    $(toastr.clear());
-    $(toastr.info("Generating ID Card..."));
-    </script>
-    ';
-
-    
-    //generate unqiue ID
-    QRcode::png($GLOBALS['t_admins']['website'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
-
-
-     // benchmark
-     QRtools::timeBenchmark();  
-        
-
-    $sql = "INSERT INTO `users` (`First Name`, `Last Name`, `AttendanceID`, `Gender`, `Telephone1`, `Telephone2`, `dob`, `department`, `address`, `Datereg`, `Passport`, `qrcode`, `qrid`) VALUES ('$fname', '$lname', '$attdid', '$gender', '$tel1', '$tel2', '$dob', '$category', '$address', '$date', '$target_file', '$dname', '$d')";
-    $res = query($sql);
-
-    echo '
-    Upload Complete...
-    <script>
-     location.href("./registersuccess?ref='.$d.'");
-    </script>
-    ';
-
-
+        }
 }
 
 
