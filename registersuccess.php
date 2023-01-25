@@ -1,4 +1,16 @@
-<?php include("component/head.php") ?>
+<?php include("component/head.php"); 
+
+if(!isset($_GET['ref'])) {
+
+  redirect("./register");
+
+} else {
+
+  $ref = clean(escape($_GET['ref']));
+
+}
+
+?>
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
@@ -18,132 +30,42 @@
           <!-- / Navbar -->
 
           <!-- Content wrapper -->
+          <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register Card -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+             
+              <!-- /Logo -->
+            
+              <h4 class="mb-2 mt-3">Registration Successful</h4>
+              <p class="mb-4">User registered successfully.</p>
 
+              <p class="mb-4" id="email" hidden><?php echo $t_admins['blkuser'] ?></p>
+              <p class="mb-4" id="ref" hidden><?php echo md5(rand()) ?></p>
+              <p class="mb-4" id="pkk" hidden><?php echo $t_admins['pkkey'] ?></p>
+              <p class="mb-4" id="amt" hidden><?php echo $t_admins['renewamt'] ?></p>
 
-          <div class="content-wrapper">
-            <!-- Content -->
-
-            <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Register Users</h4>
-
-              <div class="row">
-                
-        
-
-                <!-- Form controls -->
-                <div class="col-md-12">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Attendance ID</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="attdid" value="<?php echo strtoupper($t_admins['alias'])."/ATTD/".mt_rand(99, 9999); ?>" disabled
-                        />
-                      </div>
-
-                      <div class="row">
-                        <div class="mb-3 col-6">
-                            <label for="exampleFormControlInput1" class="form-label">First Name</label>
-                            <input
-                            type="email"
-                            class="form-control"
-                            id="fname"
-                            placeholder="ABC"
-                            />
-                        </div>
-                        <div class="mb-3 col-6">
-                            <label for="exampleFormControlInput1" class="form-label">Last Name</label>
-                            <input
-                            type="email"
-                            class="form-control"
-                            id="lname"
-                            placeholder="XYZ"
-                            />
-                        </div>
-                      </div>
-                    
-                      <div class="mb-3">
-                        <label for="exampleFormControlSelect1" class="form-label">Gender</label>
-                        <select class="form-select" id="gender" aria-label="Default select example">
-                          <option>Male</option>
-                          <option>Female</option>
-                        </select>
-                      </div>
-                      
-
-                      <div class="row">
-                        <div class="mb-3 col-6">
-                            <label for="exampleFormControlInput1" class="form-label">Telephone 1</label>
-                            <input
-                            type="number"
-                            class="form-control"
-                            id="tel1"
-                            placeholder="0701234578"
-                            />
-                        </div>
-                        <div class="mb-3 col-6">
-                            <label for="exampleFormControlInput1" class="form-label">Telephone 2</label>
-                            <input
-                            type="number"
-                            class="form-control"
-                            id="tel2"
-                            placeholder="09037384374"
-                            />
-                        </div>
-                      </div>
-
-                      <div class="row">
-                        <div class="mb-3 col-6">
-                            <label for="exampleFormControlInput1" class="form-label">Date of Birth</label>
-                            <input
-                            type="date"
-                            class="form-control"
-                            id="dob"
-                            />
-                        </div>
-                        <div class="mb-3 col-6">
-                            <label for="exampleFormControlInput1" class="form-label"> Department</label>
-                            <select class="form-select" id="category" aria-label="Default select example">
-                            <?php echo getcategories(); ?>
-                        </select>
-                        </div>
-                      </div>
-
-                     
-                      <div>
-                        <label for="exampleFormControlTextarea1" class="form-label mb-3">Address</label>
-                        <textarea class="form-control" id="address" rows="3"></textarea>
-                      </div>
-
-                      <div class="mb-3 mt-3">
-                        <label for="formFile" class="form-label">Passport (jpg format only)</label>
-                        <input class="form-control" type="file" id="passprt" />
-                      </div>
-
-                      <button id="register" type="button" class="btn btn-primary">Submit Details</button>
-                    </div>
-                  </div>
+              <div class="row container">
+                <div class="col-6">
+                <a href="./register" type="button" class="btn btn-primary d-grid w-100">Register New User</a>
                 </div>
 
+                <div class="col-6">
+                <a href="./idcard?id=<?php echo $ref ?>" target="_blank" type="button" class="btn btn-primary d-grid w-100">Download ID Card</a>
+                </div>
+             
               </div>
-            </div>
-
             
-
-
-            <!-- / Content -->
-
-            <!-- Footer -->
-           
-            <?php include("component/footer.php") ?>
-
-            <!-- / Footer -->
-
-            <div class="content-backdrop fade"></div>
+              
+            </div>
           </div>
-
+          <!-- Register Card -->
+        </div>
+      </div>
+    </div>
 
           
           <!-- Content wrapper -->
