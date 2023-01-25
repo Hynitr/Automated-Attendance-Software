@@ -289,7 +289,21 @@ function getcategoriesbytype($cat) {
         <td>'.$row['Gender'].'</td>
         <td><a href="tel:'.$row['Telephone1'].'">'.$row['Telephone1'].'</a><br/><br/><a href="tel: '.$row['Telephone2'].'">'.$row['Telephone2'].'</a></td>
         <td>'.$row['Address'].'</td>
-        <td></td>
+        <td>
+            <div class="dropdown">
+            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                <i class="bx bx-dots-vertical-rounded"></i>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="./edit?ref='.$row['AttendanceID'].'"
+                ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                >
+                <a class="dropdown-item" href="./delete?ref='.$row['AttendanceID'].'"
+                ><i class="bx bx-trash me-1"></i> Delete</a
+                >
+            </div>
+            </div>
+        </td>
       </tr>
 
         ';
