@@ -1,5 +1,8 @@
 <?php 
 include("functions/init.php");
+
+admin_details();
+
 ?>
 <!DOCTYPE html>
 

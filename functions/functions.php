@@ -21,6 +21,8 @@ function admin_details() {
 
         redirect("./signin");
 
+        die();
+
     } else {
 
         $data = $_SESSION['login'];
