@@ -110,12 +110,27 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
     
     // Allow certain file formats
     if($imageFileType != "jpg" && $imageFileType != "jpeg") {
-        echo "Sorry, only JPG and JPEG files are allowed.";
+
+        echo '
+        <script>
+        $(toastr.clear());
+        $(toastr.error("Sorry, only JPG and JPEG files are allowed."));
+        </script>
+        ';
+
         $uploadOk = 0;
     } else {
     // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            echo "Sorry, the passport was not uploaded.";
+
+            echo '
+            <script>
+            $(toastr.clear());
+            $(toastr.error("Sorry, the passport was not uploaded."));
+            </script>
+            ';
+
+            
         // if everything is ok, try to upload file
         } else {
 
@@ -263,14 +278,20 @@ function getcategories() {
     $sql = "SELECT * FROM `category` ORDER BY `category` ASC";
     $res = query($sql);
 
-    while($row = mysqli_fetch_array($res)) {
+    if(row_count($res) == '' || row_count($res) == null) {
 
-        echo '
-        <option>'.$row['category'].'</option>
+        echo '<option>No category created<option>';
 
-        ';
+    } else {
+
+        while($row = mysqli_fetch_array($res)) {
+
+            echo '
+            <option>'.$row['category'].'</option>
+
+            ';
+        }
     }
-
 }
 
 
@@ -279,47 +300,71 @@ function getcategoriesbytype($cat) {
     $sql = "SELECT * FROM `users` WHERE `department` = '$cat' ORDER BY `Last Name` ASC";
     $res = query($sql);
 
-    while($row = mysqli_fetch_array($res)) {
+    if(row_count($res) == '' || row_count($res) == null) {
 
-        echo '
-        <tr>
-        <td>'.$row['AttendanceID'].'</td>
-        <td>'.$row['Last Name'].' '.$row['First Name'].'</td>
-        <td>'.date('D, M d, Y', strtotime($row['dob'])).'</td>
-        <td>'.$row['Gender'].'</td>
-        <td><a href="tel:'.$row['Telephone1'].'">'.$row['Telephone1'].'</a><br/><br/><a href="tel: '.$row['Telephone2'].'">'.$row['Telephone2'].'</a></td>
-        <td>'.$row['Address'].'</td>
-        <td>
-            <div class="dropdown">
-            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                <i class="bx bx-dots-vertical-rounded"></i>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="./edit?ref='.$row['AttendanceID'].'"
-                ><i class="bx bx-edit-alt me-1"></i> Edit</a
-                >
-                <a class="dropdown-item" href="./delete?ref='.$row['AttendanceID'].'"
-                ><i class="bx bx-trash me-1"></i> Delete</a
-                >
-                <a class="dropdown-item" href="./idcard?ref='.$row['AttendanceID'].'"
-                ><i class="bx bx-card me-1"></i> Download ID Card</a
-                >
-                </div>
-            </div>
-        </td>
-      </tr>
+        echo '<option>No category created<option>';
 
-        ';
+    } else {
+
+            while($row = mysqli_fetch_array($res)) {
+
+                echo '
+                <tr>
+                <td>'.$row['AttendanceID'].'</td>
+                <td>'.$row['Last Name'].' '.$row['First Name'].'</td>
+                <td>'.date('D, M d, Y', strtotime($row['dob'])).'</td>
+                <td>'.$row['Gender'].'</td>
+                <td><a href="tel:'.$row['Telephone1'].'">'.$row['Telephone1'].'</a><br/><br/><a href="tel: '.$row['Telephone2'].'">'.$row['Telephone2'].'</a></td>
+                <td>'.$row['Address'].'</td>
+                <td>
+                    <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./edit?ref='.$row['AttendanceID'].'"
+                        ><i class="bx bx-edit-alt me-1"></i> Edit</a
+                        >
+                        <a class="dropdown-item" href="./delete?ref='.$row['AttendanceID'].'"
+                        ><i class="bx bx-trash me-1"></i> Delete</a
+                        >
+                        <a class="dropdown-item" href="./idcard?ref='.$row['AttendanceID'].'"
+                        ><i class="bx bx-card me-1"></i> Download ID Card</a
+                        >
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+                ';
+            }
     }
+}
+
+
+function specificuser($ref) {
+
+    $sql  = "SELECT * FROM users WHERE `AttendanceID` = '$ref'";
+    $res  = query($res);
 
 }
+
 
 function totalusers() {
 
     $sql = "SELECT COUNT(*) AS `allusers` FROM `users`";
     $res = query($sql);
-    $row = mysqli_fetch_array($res);
+    
 
+    if(row_count($res) == '' || row_count($res) == null) {
+
+        echo '0';
+
+    } else {
+    
+    $row = mysqli_fetch_array($res);
     echo number_format($row['allusers']);
+
+    }
 
 }
