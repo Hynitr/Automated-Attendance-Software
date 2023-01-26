@@ -991,13 +991,15 @@ function whatsappnotifyattendance($mobile, $msg) {
             $instanceid = $GLOBALS['t_admins']['instanceid'];
 
 
-            //add country codes to number
-            $numbers = array($mobile);
+            //add country code to mobiles
+            $numbers = explode(",", $mobile);
             $formatted_numbers = array_map(function($number) {
                 return '+234'.ltrim($number, '0');
             }, $numbers);
 
-            print_r($formatted_numbers);
+            // convert array to string
+            $numbers_string = implode(", ", $formatted_numbers);
+
 
         
             $curl = curl_init();
