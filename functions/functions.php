@@ -281,6 +281,55 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
 }  
 
 
+//delete users
+if(isset($_POST['delattdid']) && isset($_POST['roletype'])) {
+
+    $attdid     = clean(escape($_POST['delattdid']));
+    $roletype   = clean(escape($_POST['roletype']));
+
+
+    if($roletype === 'delete') {
+
+        $ref = $attdid;
+
+        getspecificuser($ref);
+
+
+        $passport = $GLOBALS['specific_user']['Passport'];
+        $qrcode = $GLOBALS['specific_user']['qrcode'];
+
+
+        //delete files from every folder
+        unlink("../upload/passport/$passport");
+        unlink("../upload/passport/$qrcode");
+
+        
+        $sql = "DELETE FROM `users` WHERE `AttendanceID` = '$attdid'";
+        $res = query($sql);
+
+
+         //create notification
+        $notifydata = 'Deleted Successfully';
+        notifyuser($notifydata);
+            
+        echo '
+        <script>
+        $(toastr.clear());
+        $(toastr.success("Deleting..."));
+        location.assign("./view");
+        </script>
+        ';
+
+
+
+    } else {
+
+        echo "Invalid Request";
+    }
+    
+}
+
+
 function bulksmsbalance() {
 
             

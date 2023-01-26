@@ -95,6 +95,27 @@
     <script src="assets/js/dashboards-analytics.js"></script>
 
     <script type="text/javascript">
+    <script src="js/toastr.js"></script>
+    <script src="assets/js/toastr.min.js"></script>
+    <script>
+        toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+        }
+    </script>
 		
 		document.getElementById('category').addEventListener('change', myfun);
 
@@ -126,3 +147,17 @@
 
   </body>
 </html>
+
+<?php
+if(isset($_SESSION['notify'])) {
+
+  echo '
+  <script>
+  $(toastr.clear());
+  $(toastr.success("'.$_SESSION['notify'].'"));
+  </script>
+  ';
+
+  unset($_SESSION['notify']);
+}
+?>

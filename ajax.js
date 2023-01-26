@@ -163,7 +163,7 @@ $(document).ready(function () {
           } else {
 
               $(toastr.clear());
-              $("#register").html("Submitting... Please wait");
+              $("#update").html("Updating... Please wait");
 
 
               var formData = new FormData();
@@ -197,5 +197,28 @@ $(document).ready(function () {
       }
     }
   });
+
+
+   //delete
+   $("#delete").click(function () {
+
+    var delattdid    = $("#attdid").val();
+    var roletype  = "delete";
+
+    $.ajax({
+      type: "post",
+      url: "functions/init.php",
+      data: { delattdid: delattdid, roletype: roletype },
+        beforeSend: function() {
+                $(toastr.clear());
+                $("#delete").html("Deleting... Please wait");
+             },
+      success: function (data) {
+        $(toastr.success(data));
+      },
+    });
+  });
+
+  
 
 });
