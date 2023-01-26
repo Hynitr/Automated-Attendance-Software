@@ -765,6 +765,7 @@ function saveattendancetolog($qrid) {
 
 function validateqrid() {
 
+
     $err  = <<<DELIMITER
 
 
@@ -782,6 +783,16 @@ function validateqrid() {
                     <h4 class="text-danger fw-bold mb-2 mt-3">Invalid ID Card</h4>
                     <p class="mb-4">The ID Card Scanned is invalid</p>
 
+                    <hr/>
+                    <footer class="content-footer footer">
+                    <div class="d-flex flex-wrap justify-content-center text-center py-2 flex-md-row flex-column">
+                      <div class="mb-2 mb-md-0">
+                        <small> Developed by <a href="https://www.google.com/search?client=opera&q=abolade+greatness&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" class="footer-link fw-bolder">Abolade Greatness</a> | Powered by
+                        <a href="https://hynitr.com" target="_blank" class="footer-link fw-bolder">Hynitr</a></small>
+                      </div>
+                      <p id="demo" hidden></p>
+                    </div>
+                    </footer>
 
                 </div>
                 </div>
@@ -855,11 +866,19 @@ function validateqrid() {
                 <input type="text" value="'.$GLOBALS['qr_user']['AttendanceID'].'" id="qrid" hidden>
               </div>
               
-             <button type="button" name="securitykeysubmit" class="btn btn-primary d-grid w-100" id="securitykeysubmit">Mark Attendance</button>
+             <button type="button" name="securitykeysubmit" class="btn btn-primary d-grid w-100 mb-3" id="securitykeysubmit">Mark Attendance</button>
 
                 
                 </form>
-              
+                <footer class="content-footer footer">
+                <div class="d-flex flex-wrap justify-content-center text-center py-2 flex-md-row flex-column">
+                  <div class="mb-2 mb-md-0">
+                    <small> Developed by <a href="https://www.google.com/search?client=opera&q=abolade+greatness&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" class="footer-link fw-bolder">Abolade Greatness</a> | Powered by
+                    <a href="https://hynitr.com" target="_blank" class="footer-link fw-bolder">Hynitr</a></small>
+                  </div>
+                  <p id="demo" hidden></p>
+                </div>
+                </footer>
             </div>
           </div>
           <!-- Register Card -->
@@ -1024,6 +1043,19 @@ function whatsappnotifyattendance($mobile, $msg) {
             $err = curl_error($curl);
 
             curl_close($curl);
+
+
+}
+
+
+function absentees() {
+
+    $date = date("Y-m-d");
+
+    //get for the specific date
+    $sql = "SELECT * FROM `log` WHERE `date` = '$date'";
+    $res = query($sql);
+
 
 
 }

@@ -104,12 +104,15 @@
               </form>
 
               
+              <?php include("component/expfoot.php") ?>
+              
             </div>
           </div>
           <!-- Register Card -->
         </div>
       </div>
     </div>
+
 
     <!-- / Content -->
 

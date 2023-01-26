@@ -80,9 +80,11 @@ admin_details();
               <p class="mb-4" id="amt" hidden><?php echo $t_admins['renewamt'] ?></p>
 
 
-             <button type="button" class="btn btn-primary d-grid w-100" onclick="payWithPaystack()">Renew Software</button>
-              
+             <button type="button" class="btn btn-primary d-grid w-100 mb-3" onclick="payWithPaystack()">Renew Software</button>
+             <?php include("component/expfoot.php") ?>
             </div>
+
+            
           </div>
           <!-- Register Card -->
         </div>
