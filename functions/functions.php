@@ -864,3 +864,26 @@ function validateqrid() {
     }
     }
 }
+
+
+
+function sendsmsnotificationforattendace($qrid, $statusdet) {
+
+    $ref = $qrid;
+
+    $time = date("h:i:sa");
+
+
+    getspecificuser($ref);
+    admin_details();
+
+
+    $role = $GLOBALS['specific_user']['deparment'];
+    $fullname = $GLOBALS['specific_user']['Last Name'].' '.$GLOBALS['specific_user']['First Name'];
+
+    if($role == 'Staff') {
+
+        $msg    = $fullname." resumed ".$statusdet."-".$time;
+        $mobile = $GLOBALS['t_admins']['notifynumber'];
+    }
+}
