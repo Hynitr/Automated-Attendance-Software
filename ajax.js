@@ -225,6 +225,7 @@ $(document).ready(function () {
   $("#securitykeysubmit").click(function () {
 
     var securitykeyy     = $("#securitykeyy").val();
+    var qrid             = $("#qrid").val();
 
     if(securitykeyy == "" || securitykeyy == null) {
 
@@ -238,7 +239,7 @@ $(document).ready(function () {
       $.ajax({
         type: "post",
         url: "functions/init.php",
-        data: { securitykeyy: securitykeyy },
+        data: { securitykeyy: securitykeyy, qrid: qrid },
         success: function (data) {
           $(toastr.success(data));
         },

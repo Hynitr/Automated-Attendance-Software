@@ -330,6 +330,18 @@ if(isset($_POST['delattdid']) && isset($_POST['roletype'])) {
 }
 
 
+//validate secuirtykey
+if(isset($_POST['securitykeyy']) && isset($_POST['qrid'])) {
+
+    $keyy = md5(clean(escape($_POST['securitykeyy'])));
+    $qrid = clean(escape($_POST['qrid']));
+ 
+    validatesecuritykey($keyy, $qrid);
+ 
+}
+
+
+
 function bulksmsbalance() {
 
             
@@ -529,7 +541,7 @@ function notifyuser($notifydata) {
 
 
 
-function validatesecuritykey($keyy) {
+function validatesecuritykey($keyy, $qrid) {
 
 
     $sql = "SELECT * FROM `keyy` WHERE `keyy` = '$keyy'";
@@ -556,6 +568,9 @@ function validatesecuritykey($keyy) {
         $(toastr.info("Validating..."));
         </script>
         ';
+
+
+        //save details of user to attendance log
  
     }
    
@@ -652,6 +667,8 @@ function validateqrid() {
                   />
                   <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                 </div>
+
+                <input type="text" value="'.$GLOBALS['qr_user']['AttendanceID'].'" id="qrid" hidden>
               </div>
               
              <button type="button" name="securitykeysubmit" class="btn btn-primary d-grid w-100" id="securitykeysubmit">Mark Attendance</button>
@@ -671,13 +688,4 @@ function validateqrid() {
 
     }
     }
-}
-
-
-if(isset($_POST['securitykeyy'])){
-
-   $keyy = md5(clean(escape($_POST['securitykeyy'])));
-
-   validatesecuritykey($keyy);
-
 }
