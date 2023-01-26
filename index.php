@@ -125,6 +125,7 @@
                       <tr class="text-nowrap">
                         <th>ID</th>
                         <th>Name</th>
+                        <th>Department</th>
                         <th>Time Resumed</th>
                         <th>No of times late (<?php echo date("M") ?>)</th>
                       </tr>
@@ -148,16 +149,13 @@
                       <tr class="text-nowrap">
                        <th>ID</th>
                         <th>Name</th>
-                        <th>Role</th>
-                        <th></th>
+                        <th>Department</th>
+                        <th>Age</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+                       <?php getbirthdays(); ?>
                       </tr>
                       
                     </tbody>

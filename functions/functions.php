@@ -1081,15 +1081,21 @@ function latecomer() {
         while($row = mysqli_fetch_array($res)) {
 
                     $attdid = $row['attendanceid'];
+                    $ref = $attdid;
 
                     //get latcoming duration
                     latecomerduration($attdid, $month);
+
+                    getspecificuser($ref);
+
+                    $department = $GLOBALS['specific_user']['department'];
 
             echo '
             
             <tr>
                         <td>'.$attdid.'</td>
                         <td>'.$row['fullname'].'</td>
+                         <td>'.$department.'</td>
                         <td class="text-danger">'.date("h:ia", strtotime($row['timein'])).'</td>
                         <td>'.number_format($GLOBALS['latecomer']['latecomeduration']).'</td>
                        
@@ -1126,4 +1132,49 @@ function totallatecomer() {
             return $latenumbers;
     }
   
+}
+
+
+function getbirthdays() {
+
+    $month = date("m");
+    $day = date("d");
+
+    
+
+    //get list of all users
+    $sql = "SELECT * FROM users WHERE MONTH(`dob`) = '$month' AND DAY(`dob`) = '$day'";
+    $res = query($sql);
+
+    if(row_count($res) == '' || row_count($res) == null) { 
+
+        echo "<p class='container text-danger'>No birthday today</p>";
+
+    } else {
+
+        while($row = mysqli_fetch_array($res)) {
+
+            $dob = $row['dob'];
+            $dob_object = new DateTime($dob);
+            $now = new DateTime();
+            $age = $now->diff($dob_object);
+
+
+        echo '
+        
+        <td>'.$row['AttendanceID'].'</td>
+        <td>'.$row['Last Name'].' '.$row['First Name'].'</td>
+        <td>'.$row['department'].'</td>
+        <td>'.$age->y.' years old</td>
+        ';
+
+        }
+
+    }
+}
+
+
+function birthdaynotify() {
+
+
 }
