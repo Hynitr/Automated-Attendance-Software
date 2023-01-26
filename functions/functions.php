@@ -526,3 +526,158 @@ function notifyuser($notifydata) {
 
     $_SESSION['notify'] = $notifydata;
 }
+
+
+
+function validatesecuritykey($keyy) {
+
+
+    $sql = "SELECT * FROM `keyy` WHERE `keyy` = '$keyy'";
+    $res = query($sql);
+ 
+    if(row_count($res) == '' || row_count($res) == null) {
+ 
+        //<p class="text-danger">Invalid security key<p>';
+ 
+        echo '
+        <script>
+        $(toastr.clear());
+        $(toastr.error("Invalid security key"));
+        </script>
+        ';
+ 
+    } else {
+ 
+        //process data
+ 
+        echo '
+        <script>
+        $(toastr.clear());
+        $(toastr.info("Validating..."));
+        </script>
+        ';
+ 
+    }
+   
+
+
+}
+
+
+function validateqrid() {
+
+    $err  = <<<DELIMITER
+
+
+     
+            <div class="container-xxl">
+            <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner">
+                <!-- Register Card -->
+                <div class="card">
+                <div class="card-body">
+                    <!-- Logo -->
+                
+                    <!-- /Logo -->
+                    <img src="assets/img/logo.png" width="50" class="img-responsive img-fluid">
+                    <h4 class="text-danger fw-bold mb-2 mt-3">Invalid ID Card</h4>
+                    <p class="mb-4">The ID Card Scanned is invalid</p>
+
+
+                </div>
+                </div>
+                <!-- Register Card -->
+            </div>
+            </div>
+        </div>
+
+
+    DELIMITER;
+
+    if(!isset($_GET['id'])) {
+
+
+        echo $err;
+        die();
+
+    } else {
+
+
+
+    $id = clean(escape($_GET['id']));
+
+
+    $sql  = "SELECT * FROM users WHERE `qrid` = '$id'";
+    $res  = query($sql);
+
+    if(row_count($res) == "" || row_count($res) == null) {
+
+       echo $err;
+
+        die();
+
+    } else {
+     
+        $GLOBALS['qr_user'] = mysqli_fetch_array($res);
+
+
+        echo '
+        
+        <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register Card -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+             
+              <!-- /Logo -->
+              <img src="upload/passport/'.$GLOBALS['qr_user']['Passport'].'" width="100" class="img-responsive img-fluid">
+              <h4 class="mb-2 mt-3 fw-bold">'.$GLOBALS['qr_user']['First Name'].' '.$GLOBALS['qr_user']['Last Name'].'</h4>
+              <p class="mb-4">Kindly input security key to mark attendance</p>
+
+
+                <form method="POST">
+                
+                <div class="mb-3 form-password-toggle">
+                <label class="form-label" for="password">Input Security Key</label>
+                <div class="input-group input-group-merge">
+                  <input
+                    type="password"
+                    id="securitykeyy" name="securitykeyy"
+                    class="form-control"
+                    name="password"
+                    placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                    aria-describedby="password" required
+                  />
+                  <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                </div>
+              </div>
+              
+             <button type="button" name="securitykeysubmit" class="btn btn-primary d-grid w-100" id="securitykeysubmit">Mark Attendance</button>
+
+                
+                </form>
+              
+            </div>
+          </div>
+          <!-- Register Card -->
+        </div>
+      </div>
+    </div>
+        
+        
+        ';
+
+    }
+    }
+}
+
+
+if(isset($_POST['securitykeyy'])){
+
+   $keyy = md5(clean(escape($_POST['securitykeyy'])));
+
+   validatesecuritykey($keyy);
+
+}

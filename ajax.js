@@ -219,6 +219,33 @@ $(document).ready(function () {
     });
   });
 
-  
+
+
+  //security key validation
+  $("#securitykeysubmit").click(function () {
+
+    var securitykeyy     = $("#securitykeyy").val();
+
+    if(securitykeyy == "" || securitykeyy == null) {
+
+      $(toastr.error("Input security key"));
+
+    }  else {
+
+      $(toastr.clear());
+      $("#securitykeysubmit").html("Submitting... Please wait");
+
+      $.ajax({
+        type: "post",
+        url: "functions/init.php",
+        data: { securitykeyy: securitykeyy },
+        success: function (data) {
+          $(toastr.success(data));
+        },
+      });
+    }
+
+  });
+
 
 });
