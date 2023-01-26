@@ -1,0 +1,2 @@
+[26-Jan-2023 02:11:05 Africa/Lagos] PHP Warning:  unlink(../upload/passport/295757958_119863947448190_2961151925041786181_n.jpg) [<a href='0function.unlink0'>function.unlink0</a>]: No such file or directory in C:\xampp\htdocs\attendance\functions\functions.php on line 303
+[26-Jan-2023 02:11:05 Africa/Lagos] PHP Warning:  unlink(../upload/passport/HYNITRATTD1872.png) [<a href='0function.unlink0'>function.unlink0</a>]: No such file or directory in C:\xampp\htdocs\attendance\functions\functions.php on line 304

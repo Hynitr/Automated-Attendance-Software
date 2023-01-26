@@ -440,7 +440,7 @@ function getcategoriesbytype($cat) {
 
     if(row_count($res) == '' || row_count($res) == null) {
 
-        echo '<option>No category created<option>';
+        echo '<p class="text-danger">No registered users for this category</p>';
 
     } else {
 
