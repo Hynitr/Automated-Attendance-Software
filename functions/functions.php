@@ -752,6 +752,8 @@ function saveattendancetolog($qrid) {
 
 }
 
+
+
 function validateqrid() {
 
     $err  = <<<DELIMITER
