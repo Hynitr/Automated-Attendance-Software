@@ -646,6 +646,8 @@ function checkattendancetype($qrid, $fullname, $statusdet) {
 
                 echo '
                 <script>
+                $(toastr.clear());
+                $(toastr.success("Attendance Successful"));
                 $("#default").hide();
                 $("#markedout").show();
                 </script>
@@ -667,6 +669,8 @@ function checkattendancetype($qrid, $fullname, $statusdet) {
 
         echo '
         <script>
+        $(toastr.clear());
+        $(toastr.success("Attendance Successful"));
         $("#default").hide();
         $("#markedout").show();
         </script>
@@ -706,7 +710,7 @@ function saveattendancetolog($qrid) {
                 echo '
                 <script>
                 $(toastr.clear());
-                $(toastr.error("User already has an attendance"));
+                $(toastr.success("User already has an attendance"));
                 </script>
                 ';
 
@@ -724,6 +728,8 @@ function saveattendancetolog($qrid) {
 
                 echo '
                 <script>
+                $(toastr.clear());
+                $(toastr.error("Attendance Successful"));
                 $("#default").hide();
                 $("#marked").show();
                 </script>
