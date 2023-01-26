@@ -571,13 +571,79 @@ function validatesecuritykey($keyy, $qrid) {
 
 
         //save details of user to attendance log
- 
+        saveattendancetolog($qrid);
+
     }
    
 
 
 }
 
+
+function statusdeterminer() {
+
+    $time = date("h:i:sa");
+
+    //status determiner
+    admin_details();
+    
+    $expectedtimein = $GLOBALS['t_admins']['expectedtimein'];
+
+    if($time > $expectedtimein) {
+
+        return $status = "Late";
+
+    } else {
+
+       return $status = "Punctual";
+    }
+}
+
+
+function saveattendancetolog($qrid) {
+
+    $ref = $qrid;
+    getspecificuser($ref);
+
+    
+
+    $fullname = $GLOBALS['specific_user']['Last Name']." ".$GLOBALS['specific_user']['First Name'];
+    $date     = date("Y-m-d");
+    $time     = date("h:i:sa");
+
+
+    $statusdet = statusdeterminer();
+
+
+    
+    //saving log to database
+    if(date("a") == 'am') {
+
+        //check if user already has an attendance
+
+        //if yes, dont mark attendance
+
+        //if no, mark attendance
+
+        //insert log
+
+    } else {
+
+
+        //check if user already has anattenace for evening
+
+        //if yes, dont mark attendance
+
+        //if no, check if morning attendnace exit
+            //if yes, mark attnedance and update log
+            //if not, mark attendance and insert log
+
+       
+        
+    }
+
+
+}
 
 function validateqrid() {
 
