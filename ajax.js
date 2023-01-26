@@ -123,8 +123,8 @@ $(document).ready(function () {
 
 
   
-  //register
-  $("#register").click(function () {
+  //edit
+  $("#update").click(function () {
 
     var fname     = $("#fname").val();
     var lname     = $("#lname").val();
@@ -135,7 +135,7 @@ $(document).ready(function () {
     var dob       = $("#dob").val();
     var category  = $("#category").val();
     var address   = $("#address").val();
-    var passport  = $("#passprt")[0].files[0];
+    var edpassport  = $("#passprt")[0].files[0];
     var roletype  = "edit";
 
     if (fname == "" || fname == null) {
@@ -176,7 +176,7 @@ $(document).ready(function () {
               formData.append("dob", dob);
               formData.append("category", category);
               formData.append("address", address);
-              formData.append("passport", passport);
+              formData.append("edpassport", edpassport);
               formData.append("roletype", roletype);
               $.ajax({
                 url: "functions/init.php",

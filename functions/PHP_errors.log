@@ -1,0 +1,3 @@
+[26-Jan-2023 01:15:01 Africa/Lagos] PHP Warning:  Undefined array key "edpassport" in C:\xampp\htdocs\attendance\functions\functions.php on line 214
+[26-Jan-2023 01:15:01 Africa/Lagos] PHP Warning:  Trying to access array offset on value of type null in C:\xampp\htdocs\attendance\functions\functions.php on line 214
+[26-Jan-2023 01:15:01 Africa/Lagos] PHP Deprecated:  basename(): Passing null to parameter #1 ($path) of type string is deprecated in C:\xampp\htdocs\attendance\functions\functions.php on line 214

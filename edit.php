@@ -224,4 +224,16 @@ if(!isset($_GET['ref'])) {
 <?php
 }
 
+
+if(isset($_SESSION['notify'])) {
+
+    echo '
+    <script>
+    $(toastr.clear());
+    $(toastr.success("'.$_SESSION['notify'].'"));
+    </script>
+    ';
+
+    unset($_SESSION['notify']);
+}
 ?>
