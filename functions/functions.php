@@ -1141,7 +1141,6 @@ function getbirthdays() {
     $day = date("d");
 
     
-
     //get list of all users
     $sql = "SELECT * FROM users WHERE MONTH(`dob`) = '$month' AND DAY(`dob`) = '$day'";
     $res = query($sql);
@@ -1174,7 +1173,101 @@ function getbirthdays() {
 }
 
 
-function birthdaynotify() {
+function birthdaynotify() { 
 
+    $month = date("m");
+    $day = date("d");
+
+    
+    //get list of all users
+    $sql = "SELECT * FROM users WHERE MONTH(`dob`) = '$month' AND DAY(`dob`) = '$day' AND `bday` = ''";
+    $res = query($sql);
+
+    if(row_count($res) == '' || row_count($res) == null) { 
+
+       //do nothing
+
+    } else {
+
+        while($row = mysqli_fetch_array($res)) {
+
+            $ref = $row['AttendanceID'];
+            
+            getspecificuser($ref);
+            admin_details();
+        
+        
+             // Initialize variables ( set your variables here )
+        
+            $username = $GLOBALS['t_admins']['blkuser'];
+        
+            $password = $GLOBALS['t_admins']['blkpword'];
+
+            $name   = $GLOBALS['specific_user']['First Name'];
+        
+            $sender   = $GLOBALS['t_admins']['alias'];
+
+            $mobile = $GLOBALS['specific_user']['Telephone1'].','.$GLOBALS['specific_user']['Telephone2'];
+
+            $msg = "Dear ".$name.", happy birthday and many more happy years to come";
+
+            
+            bulksmsapicall($username, $password, $msg, $mobile, $sender);
+
+
+            //update db of bday
+            $ssl = "UPDATE `users` SET `bday` = 'sent' WHERE MONTH(`dob`) = '$month' AND DAY(`dob`) = '$day'";
+            $sel = query($ssl);
+
+
+        }
+
+    }
+
+}
+
+
+function checkvalidbirthday() {
+
+    admin_details();
+
+    $startyear =  $username = $GLOBALS['t_admins']['startyear'];
+    $year      = date("Y");
+
+
+    if($year === $startyear) {
+
+
+        //send birthday message
+        birthdaynotify(); 
+
+    } else {
+
+        //update all birthday in table
+        $sql  = "SELECT * FROM users";
+        $res  = query($sql);
+
+        if(row_count($res) == "" || row_count($res) == null) {
+
+            //do nothiny
+            die();
+
+        } else {
+
+            while($row = mysqli_fetch_array($res)) {
+
+                $atd = $row['AttendanceID'];
+
+                $sell = "UPDATE users SET `bday` = '' WHERE `AttendanceID` = '$atd'";
+                $rsll = query($sell);
+
+
+                $dpt = "UPDATE `admin` SET `startyear` = '$year'";
+                $des = query($dpt);
+
+            }
+
+        }
+    }
 
 }
