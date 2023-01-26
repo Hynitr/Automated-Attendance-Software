@@ -1048,13 +1048,42 @@ function whatsappnotifyattendance($mobile, $msg) {
 }
 
 
-function absentees() {
+function latecomer() {
+
+    admin_details();
+
+    $resmp = $GLOBALS['t_admins']['expectedtimein'];
 
     $date = date("Y-m-d");
 
     //get for the specific date
-    $sql = "SELECT * FROM `log` WHERE `date` = '$date'";
+    $sql = "SELECT * FROM `log` WHERE `date` = '$date' AND `status` = 'Late'";
     $res = query($sql);
+
+    if(row_count($res) == '' || row_count($res) == null) {
+
+        echo "<p class='container text-danger'>No one came late today</p>";
+
+    } else {
+
+
+        while($row = mysqli_fetch_array($res)) {
+
+            echo '
+            
+            <tr>
+                        <td>'.$row['attendanceid'].'</td>
+                        <td>'.$row['fullname'].'</td>
+                        <td>'.$resmp.'</td>
+                        <td>'.$row['timein'].'</td>
+                        <td>Table cell</td>
+                       
+                      </tr>
+            
+            
+            ';
+        }
+    }
 
 
 

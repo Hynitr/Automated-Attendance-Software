@@ -45,7 +45,7 @@
                         <a href="./absentee">
                         <div class="card-body">
                           
-                          <span class="fw-semibold d-block mb-1 text-dark">Absentee</span>
+                          <span class="fw-semibold d-block mb-1 text-dark">Absentee / Late Comers</span>
                           <h4 class="card-title mb-2 text-dark">$12,628</h4>
                           <small class="text-primary fw-semibold ">View all <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
@@ -125,23 +125,13 @@
                       <tr class="text-nowrap">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Role</th>
-                        <th>Opening Hour</th>
-                        <th>Time Signed in</th>
-                        <th>No. of late coming</th>
-                        <th></th>
+                        <th>Expected Resumption Time</th>
+                        <th>Time Resumed</th>
+                        <th>No of times late (<?php echo date("M") ?>)</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                      </tr>
+                      <?php latecomer() ?>
                       
                     </tbody>
                   </table>
