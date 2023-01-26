@@ -898,7 +898,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
 
 
-    $role = $GLOBALS['specific_user']['deparment'];
+    $role = $GLOBALS['specific_user']['department'];
     $fullname = $GLOBALS['specific_user']['Last Name'].' '.$GLOBALS['specific_user']['First Name'];
 
     if($role == 'Staff' && $type == 'am') {
