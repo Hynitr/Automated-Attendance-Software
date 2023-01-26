@@ -701,7 +701,7 @@ function saveattendancetolog($qrid) {
 
     
     //saving log to database
-    if(date("a") == 'pm') {
+    if(date("a") == 'am') {
 
         //check if user already has an attendance
 
@@ -732,7 +732,7 @@ function saveattendancetolog($qrid) {
                 echo '
                 <script>
                 $(toastr.clear());
-                $(toastr.error("Attendance Successful"));
+                $(toastr.success("Attendance Successful"));
                 $("#default").hide();
                 $("#marked").show();
                 </script>
