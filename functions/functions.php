@@ -903,7 +903,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
     if($role == 'Staff' && $type == 'am') {
 
-        $msg    = $fullname." resumed ".$statusdet."-".$time;
+        $msg    = $fullname." resumed ".$statusdet." - ".$time;
         $mobile = $GLOBALS['t_admins']['notifynumber'];
 
 
@@ -911,7 +911,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
         if($role == 'Staff' && $type == 'pm') {
 
-            $msg    = $fullname." closed at -".$time;
+            $msg    = $fullname." closed at - ".$time;
             $mobile = $GLOBALS['t_admins']['notifynumber'];
     
     
@@ -920,7 +920,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
             if($role != 'Staff' && $type == 'am') {
 
-                $msg    = $fullname." resumed ".$statusdet."-".$time;
+                $msg    = $fullname." resumed ".$statusdet." - ".$time;
                 $mobile = $GLOBALS['specific_user']['Telephone1'].','.$GLOBALS['specific_user']['Telephone2'];
         
         
@@ -929,7 +929,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
                 if($role != 'Staff' && $type == 'pm') {
 
-                    $msg    = $fullname." left at -".$time;
+                    $msg    = $fullname." left at - ".$time;
                     $mobile = $GLOBALS['specific_user']['Telephone1'].','.$GLOBALS['specific_user']['Telephone2'];
             
             
