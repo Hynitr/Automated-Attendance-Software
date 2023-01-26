@@ -644,6 +644,9 @@ function checkattendancetype($qrid, $fullname, $statusdet) {
                 $res = query($ssq);
 
 
+                sendsmsnotificationforattendace($qrid, $statusdet);
+
+
                 echo '
                 <script>
                 $(toastr.clear());
@@ -667,7 +670,10 @@ function checkattendancetype($qrid, $fullname, $statusdet) {
 
          //if not, mark attendance and insert log  
          $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timeout`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
-        $res = query($sql);
+         $res = query($sql);
+
+
+         sendsmsnotificationforattendace($qrid, $statusdet);
 
 
         echo '
@@ -727,6 +733,9 @@ function saveattendancetolog($qrid) {
 
                 $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timein`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
                 $res = query($sql);
+
+
+                sendsmsnotificationforattendace($qrid, $statusdet);
 
 
                 echo '
@@ -885,6 +894,8 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
     $password = $GLOBALS['t_admins']['blkpword'];
 
+    $sender   = $GLOBALS['t_admins']['alias'];
+
 
 
     $role = $GLOBALS['specific_user']['deparment'];
@@ -930,5 +941,35 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
     }
 
 
-    bulksmsapicall($username, $password, $msg, $mobile);
+    bulksmsapicall($username, $password, $msg, $mobile, $sender);
+}
+
+
+
+function bulksmsapicall($username, $password, $msg, $mobile, $sender) {
+
+    
+    $api_url  = 'https://portal.nigeriabulksms.com/api/';
+
+
+    //Create the message data
+
+    $data = array('username'=>$username, 'password'=>$password, 'message'=>$msg, 'sender'=>$sender, 'mobiles'=>$mobile);
+
+    //URL encode the message data
+
+    $data = http_build_query($data);
+
+    //Send the message
+
+    $ch = curl_init(); // Initialize a cURL connection
+
+    curl_setopt($ch,CURLOPT_URL, $api_url);
+    curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch,CURLOPT_POST, true);
+    curl_setopt($ch,CURLOPT_POSTFIELDS, $data);
+
+    $result = curl_exec($ch);
+
+    $result = json_decode($result);
 }
