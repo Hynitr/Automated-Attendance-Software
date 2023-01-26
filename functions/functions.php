@@ -899,7 +899,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
     $ref = $qrid;
 
-    $time = date("h:i:sa");
+    $time = date("h:ia");
     $type = date("a");
 
 
