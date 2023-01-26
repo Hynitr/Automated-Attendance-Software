@@ -38,8 +38,7 @@ if(!isset($_GET['ref'])) {
             <!-- Content -->
 
             <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Edit <?php echo $specific_user['Last Name']." ".$specific_user['First Name'] ?></h4>
-
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span> Edit <?php echo $specific_user['Last Name']." ".$specific_user['First Name'] ?> </h4>
               <div class="row">
                 
         
@@ -133,10 +132,22 @@ if(!isset($_GET['ref'])) {
                         <textarea class="form-control" id="address" rows="3"><?php echo $specific_user['Address'] ?></textarea>
                       </div>
 
-                      <div class="mb-3 mt-3">
+                      <div class="row">
+
+                      <div class="mb-3 mt-3 col-6">
                         <label for="formFile" class="form-label">Passport (jpg format only)</label>
                         <input class="form-control" type="file" id="passprt"/>
                       </div>
+
+                      <div class="mb-3 mt-3 col-6 justify-content-center m-auto text-center">
+                        <label for="formFile" class="form-label">Passport used</label> <br/>
+                        <img src="upload/passport/<?php echo $specific_user['Passport'] ?>" alt=" <?php echo $specific_user['Last Name']." ".$specific_user['First Name'] ?>" class="img-fluid img-responsive" width="150" />
+              
+                      </div>
+                      </div>
+                      
+
+                    
 
                       <button id="update" type="button" class="btn btn-primary">Update Details</button>
                     </div>

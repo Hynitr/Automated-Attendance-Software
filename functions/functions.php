@@ -400,7 +400,8 @@ function getcategoriesbytype($cat) {
                 echo '
                 <tr>
                 <td>'.$row['AttendanceID'].'</td>
-                <td>'.$row['Last Name'].' '.$row['First Name'].'</td>
+                <td> <img src="upload/passport/'.$row['Passport'].'" alt="'.$row['Last Name'].' '.$row['First Name'].'" class="img-fluid img-responsive" width="50" />
+                  '.$row['Last Name'].' '.$row['First Name'].'</td>
                 <td>'.date('D, M d, Y', strtotime($row['dob'])).'</td>
                 <td>'.$row['Gender'].'</td>
                 <td><a href="tel:'.$row['Telephone1'].'">'.$row['Telephone1'].'</a><br/><br/><a href="tel: '.$row['Telephone2'].'">'.$row['Telephone2'].'</a></td>
@@ -470,6 +471,7 @@ function totalusers() {
     }
 
 }
+
 
 function notifyuser($notifydata) {
 
