@@ -1048,13 +1048,24 @@ function whatsappnotifyattendance($mobile, $msg) {
 }
 
 
+function latecomerduration($attdid, $month) {
+
+    $sql = "SELECT COUNT(*) AS `latecomeduration` FROM `log` WHERE `attendanceid` = '$attdid' AND `status` = 'Late' AND MONTH(`date`) = '$month'";
+    $res = query($sql);
+
+    $GLOBALS['latecomer'] = mysqli_fetch_array($res);
+
+
+}
+
+
+
 function latecomer() {
 
-    admin_details();
-
-    $resmp = $GLOBALS['t_admins']['expectedtimein'];
-
     $date = date("Y-m-d");
+    $month = date("m");
+
+    
 
     //get for the specific date
     $sql = "SELECT * FROM `log` WHERE `date` = '$date' AND `status` = 'Late'";
@@ -1067,16 +1078,21 @@ function latecomer() {
     } else {
 
 
+
         while($row = mysqli_fetch_array($res)) {
+
+                    $attdid = $row['attendanceid'];
+
+                    //get latcoming duration
+                    latecomerduration($attdid, $month);
 
             echo '
             
             <tr>
-                        <td>'.$row['attendanceid'].'</td>
+                        <td>'.$attdid.'</td>
                         <td>'.$row['fullname'].'</td>
-                        <td>'.$resmp.'</td>
-                        <td>'.$row['timein'].'</td>
-                        <td>Table cell</td>
+                        <td class="text-danger">'.date("h:ia", strtotime($row['timein'])).'</td>
+                        <td>'.number_format($GLOBALS['latecomer']['latecomeduration']).'</td>
                        
                       </tr>
             

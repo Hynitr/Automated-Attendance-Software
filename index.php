@@ -118,14 +118,13 @@
 
               <!-- Responsive Table -->
               <div class="card mb-5">
-                <h5 class="card-header text-dark">Late Comers</h5>
-                <div class="table-responsive text-nowrap">
+                <h5 class="card-header text-dark">Late Comers [Expected Resumption Time: <?php echo date('h:ia', strtotime($resmp = $GLOBALS['t_admins']['expectedtimein'])); ?>]</h5>
+                <div class="table-responsive text-nowrap">  
                   <table class="table">
                     <thead>
                       <tr class="text-nowrap">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Expected Resumption Time</th>
                         <th>Time Resumed</th>
                         <th>No of times late (<?php echo date("M") ?>)</th>
                       </tr>
