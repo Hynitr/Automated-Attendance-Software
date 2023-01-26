@@ -1059,7 +1059,6 @@ function latecomerduration($attdid, $month) {
 }
 
 
-
 function latecomer() {
 
     $date = date("Y-m-d");
@@ -1103,4 +1102,28 @@ function latecomer() {
 
 
 
+}
+
+
+function totallatecomer() {
+
+    $month = date("m");
+
+    $sql = "SELECT COUNT(*) AS `latecomenumber` FROM `log` WHERE MONTH(`date`) = '$month' AND `status` = 'Late'";
+    $res = query($sql);
+
+    if(row_count($res) == '' || row_count($res) == null) {
+
+        $latenumbers = 0;
+
+        return $latenumbers;
+
+    } else {
+
+            $row = mysqli_fetch_array($res);
+            $latenumbers = number_format($row['latecomenumber']);
+
+            return $latenumbers;
+    }
+  
 }
