@@ -600,11 +600,78 @@ function checkattendancelog($qrid) {
 
     if(row_count($res) == 1) {
 
+        $GLOBALS['rerow'] = $res;
+
        return true;
 
     } else {
 
         return false;
+
+    }
+}
+
+
+function checkattendancetype($qrid, $fullname, $statusdet) {
+
+    if(checkattendancelog($qrid)) {
+
+        $row = mysqli_fetch_array($GLOBALS['rerow']);
+
+        if(($row['timein'] != '' || $row['timein']) != null && ($row['timeout'] != '00:00:00' || $row['timeout'] != '00:00:00')){
+
+             //if yes, dont mark attendance
+
+           echo '
+           <script>
+           $(toastr.clear());
+           $(toastr.error("User already has an attendance"));
+           </script>
+           ';
+
+           
+
+        } else {
+
+
+            if(($row['timein'] != '' || $row['timein']) != null && ($row['timeout'] == '00:00:00' || $row['timeout'] == '00:00:00')){
+
+                $time = date("h:i:sa");
+
+                //if yes, mark attnedance and update log
+
+                $ssq = "UPDATE `log` SET `timeout` = '$time'";
+                $res = query($ssq);
+
+
+                echo '
+                <script>
+                $("#default").hide();
+                $("#markedout").show();
+                </script>
+                
+                ';
+
+
+            } 
+
+
+        }
+    } else {
+
+
+         //if not, mark attendance and insert log  
+         $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timeout`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
+        $res = query($sql);
+
+
+        echo '
+        <script>
+        $("#default").hide();
+        $("#markedout").show();
+        </script>
+        
+        ';
 
     }
 }
@@ -627,63 +694,49 @@ function saveattendancetolog($qrid) {
 
     
     //saving log to database
-    if(date("a") == 'am') {
+    if(date("a") == 'pm') {
 
         //check if user already has an attendance
 
         if(checkattendancelog($qrid)) {
   
-           
-        //if yes, dont mark attendance
+                
+                //if yes, dont mark attendance
 
-        echo '
-        <script>
-        $(toastr.clear());
-        $(toastr.error("User already has an attendance"));
-        </script>
-        ';
-
-
-        } else {
+                echo '
+                <script>
+                $(toastr.clear());
+                $(toastr.error("User already has an attendance"));
+                </script>
+                ';
 
 
-        //if no, mark attendance
-
-        //insert log
-
-        $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timein`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
-        $res = query($sql);
+                } else {
 
 
-        echo '
-        <script>
-        $("#default").hide();
-        $("#marked").show();
-        </script>
-        
-        ';
+                //if no, mark attendance
+
+                //insert log
+
+                $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timein`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
+                $res = query($sql);
+
+
+                echo '
+                <script>
+                $("#default").hide();
+                $("#marked").show();
+                </script>
+                
+                ';
 
         }
 
-             
-
-        
-        
-
-       
+           
 
     } else {
 
-
-        //check if user already has anattenace for evening
-
-        //if yes, dont mark attendance
-
-        //if no, check if morning attendnace exit
-            //if yes, mark attnedance and update log
-            //if not, mark attendance and insert log
-
-       
+        checkattendancetype($qrid, $fullname, $statusdet);       
         
     }
 

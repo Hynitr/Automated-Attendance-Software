@@ -75,7 +75,7 @@
                 
                     <!-- /Logo -->
                     <img src="assets/img/logo.png" width="50" class="img-responsive img-fluid">
-                    <h4 class="text-success fw-bold mb-2 mt-3">Attendance Marked</h4>
+                    <h4 class="text-success fw-bold mb-2 mt-3">Attendance Marked In</h4>
                     <p class="mb-4">User have been marked in </p>
 
 
@@ -84,7 +84,29 @@
                 <!-- Register Card -->
             </div>
             </div>
-        </div>
+    </div>
+
+
+    <div class="container-xxl" id="markedout" style="display: none">
+            <div class="authentication-wrapper authentication-basic container-p-y">
+            <div class="authentication-inner">
+                <!-- Register Card -->
+                <div class="card">
+                <div class="card-body">
+                    <!-- Logo -->   
+                
+                    <!-- /Logo -->
+                    <img src="assets/img/logo.png" width="50" class="img-responsive img-fluid">
+                    <h4 class="text-success fw-bold mb-2 mt-3">Attendance Marked Out</h4>
+                    <p class="mb-4">User have been marked out </p>
+
+
+                </div>
+                </div>
+                <!-- Register Card -->
+            </div>
+            </div>
+    </div>
 
     
 
