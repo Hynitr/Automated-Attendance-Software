@@ -872,18 +872,63 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
     $ref = $qrid;
 
     $time = date("h:i:sa");
+    $type = date("a");
 
 
     getspecificuser($ref);
     admin_details();
 
 
+     // Initialize variables ( set your variables here )
+
+    $username = $GLOBALS['t_admins']['blkuser'];
+
+    $password = $GLOBALS['t_admins']['blkpword'];
+
+
+
     $role = $GLOBALS['specific_user']['deparment'];
     $fullname = $GLOBALS['specific_user']['Last Name'].' '.$GLOBALS['specific_user']['First Name'];
 
-    if($role == 'Staff') {
+    if($role == 'Staff' && $type == 'am') {
 
         $msg    = $fullname." resumed ".$statusdet."-".$time;
         $mobile = $GLOBALS['t_admins']['notifynumber'];
+
+
+    } else {
+
+        if($role == 'Staff' && $type == 'pm') {
+
+            $msg    = $fullname." closed at -".$time;
+            $mobile = $GLOBALS['t_admins']['notifynumber'];
+    
+    
+        } else {
+
+
+            if($role != 'Staff' && $type == 'am') {
+
+                $msg    = $fullname." resumed ".$statusdet."-".$time;
+                $mobile = $GLOBALS['t_admins']['notifynumber'];
+        
+        
+            } else {
+
+
+                if($role != 'Staff' && $type == 'pm') {
+
+                    $msg    = $fullname." left at -".$time;
+                    $mobile = $GLOBALS['t_admins']['notifynumber'];
+            
+            
+                } 
+            }
+        }
+
+      
     }
+
+
+    bulksmsapicall($username, $password, $msg, $mobile);
 }
