@@ -661,6 +661,9 @@ function checkattendancetype($qrid, $fullname, $statusdet) {
         }
     } else {
 
+        $time = date("h:i:sa");
+        $date = date("Y-m-d");
+
 
          //if not, mark attendance and insert log  
          $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timeout`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
