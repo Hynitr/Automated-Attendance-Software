@@ -135,7 +135,7 @@ if(!isset($_GET['ref'])) {
                       <div class="row">
 
                       <div class="mb-3 mt-3 col-6">
-                        <label for="formFile" class="form-label">Passport (jpg format only)</label>
+                        <label for="formFile" class="form-label">Previous Passport (jpg format only)</label>
                         <input class="form-control" type="file" id="passprt"/>
                       </div>
 
