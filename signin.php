@@ -97,8 +97,10 @@
                   </div>
                 </div>
 
+                  
+
                 
-                <button type="button" class="btn btn-primary d-grid w-100" id="lsub">Sign up</button>
+                <button type="button" class="btn btn-primary d-grid w-100" id="lsub">Sign in</button>
               </form>
 
               

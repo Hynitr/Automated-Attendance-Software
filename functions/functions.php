@@ -301,7 +301,7 @@ if(isset($_POST['delattdid']) && isset($_POST['roletype'])) {
 
         //delete files from every folder
         unlink("../upload/passport/$passport");
-        unlink("../upload/passport/$qrcode");
+        unlink("../upload/qrcode/$qrcode");
 
         
         $sql = "DELETE FROM `users` WHERE `AttendanceID` = '$attdid'";
