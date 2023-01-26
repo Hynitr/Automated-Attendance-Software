@@ -135,12 +135,12 @@ if(!isset($_GET['ref'])) {
                       <div class="row">
 
                       <div class="mb-3 mt-3 col-6">
-                        <label for="formFile" class="form-label">Previous Passport (jpg format only)</label>
+                        <label for="formFile" class="form-label">Passport (jpg format only)</label>
                         <input class="form-control" type="file" id="passprt"/>
                       </div>
 
                       <div class="mb-3 mt-3 col-6 justify-content-center m-auto text-center">
-                        <label for="formFile" class="form-label">Passport used</label> <br/>
+                        <label for="formFile" class="form-label">Previous Passport used</label> <br/>
                         <img src="upload/passport/<?php echo $specific_user['Passport'] ?>" alt=" <?php echo $specific_user['Last Name']." ".$specific_user['First Name'] ?>" class="img-fluid img-responsive" width="150" />
               
                       </div>
