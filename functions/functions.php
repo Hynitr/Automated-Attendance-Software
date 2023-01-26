@@ -560,17 +560,8 @@ function validatesecuritykey($keyy, $qrid) {
  
     } else {
  
-        //process data
- 
-        echo '
-        <script>
-        $(toastr.clear());
-        $(toastr.info("Validating..."));
-        </script>
-        ';
-
-
-        //save details of user to attendance log
+        
+         //save details of user to attendance log
         saveattendancetolog($qrid);
 
     }
@@ -600,6 +591,25 @@ function statusdeterminer() {
 }
 
 
+function checkattendancelog($qrid) {
+
+    $date = date("Y-m-d");
+
+    $sql  = "SELECT * FROM `log` WHERE `attendanceid` = '$qrid' AND `date` = '$date'";
+    $res  = query($sql);
+
+    if(row_count($res) == 1) {
+
+       return true;
+
+    } else {
+
+        return false;
+
+    }
+}
+
+
 function saveattendancetolog($qrid) {
 
     $ref = $qrid;
@@ -621,11 +631,46 @@ function saveattendancetolog($qrid) {
 
         //check if user already has an attendance
 
+        if(checkattendancelog($qrid)) {
+  
+           
         //if yes, dont mark attendance
+
+        echo '
+        <script>
+        $(toastr.clear());
+        $(toastr.error("User already has an attendance"));
+        </script>
+        ';
+
+
+        } else {
+
 
         //if no, mark attendance
 
         //insert log
+
+        $sql = "INSERT INTO `log`(`attendanceid`, `fullname`, `date`, `timein`, `status`) VALUES ('$qrid', '$fullname', '$date', '$time', '$statusdet')";
+        $res = query($sql);
+
+
+        echo '
+        <script>
+        $("#default").hide();
+        $("#marked").show();
+        </script>
+        
+        ';
+
+        }
+
+             
+
+        
+        
+
+       
 
     } else {
 
@@ -704,7 +749,7 @@ function validateqrid() {
 
         echo '
         
-        <div class="container-xxl">
+        <div class="container-xxl" id="default">
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
           <!-- Register Card -->
