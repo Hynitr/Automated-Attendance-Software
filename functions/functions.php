@@ -507,7 +507,7 @@ function getcategoriesbytype($cat) {
 
 function getspecificuser($ref) {
 
-    $sql  = "SELECT * FROM users WHERE `AttendanceID` = '$ref'";
+    $sql  = "SELECT * FROM users WHERE `AttendanceID` = '$ref' OR `qrid` = '$ref'";
     $res  = query($sql);
 
     if(row_count($res) == "" || row_count($res) == null) {
