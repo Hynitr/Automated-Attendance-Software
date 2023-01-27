@@ -233,8 +233,8 @@ $(document).ready(function () {
 
     }  else {
 
-      $(toastr.clear());
-      $("#securitykeysubmit").html("Submitting... Please wait");
+
+      $(toastr.error("Submitting..."));
 
       $.ajax({
         type: "post",
