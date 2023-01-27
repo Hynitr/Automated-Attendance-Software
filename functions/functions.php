@@ -1301,7 +1301,7 @@ function absentees() {
             if(row_count($log_res) == 0) {
 
 
-                  //count the number of times the user appears in the log table for the current month
+                //count the number of times the user appears in the log table for the current month
                 $cql = "SELECT COUNT(*) as count FROM `log` WHERE `attendanceid` = '$atd' AND MONTH(date) = '$month' AND YEAR(date) = '$year'";
                 $clog_res = query($cql);
                 $count = mysqli_fetch_array($clog_res)['count'];
@@ -1327,4 +1327,34 @@ function absentees() {
 
     }
    
+}
+
+
+function countabsentees() {
+
+        //get all users
+        $sql  = "SELECT * FROM users";
+        $res  = query($sql);
+
+        if(row_count($res) == "" || row_count($res) == null) {
+            //do nothing
+            die();
+            
+        } else {
+            $count = 0;
+            while($row = mysqli_fetch_array($res)) {
+                $atd = $row['AttendanceID'];
+                $date = date("Y-m-d");
+
+                //match their id with the log provided there is a time out
+                $sql = "SELECT * FROM `log` WHERE `attendanceid` = '$atd' AND `date` = '$date'";
+                $log_res = query($sql);
+                if(row_count($log_res) == 0) {
+                    $count++;
+                }
+            }
+        
+            echo $count;
+        }
+
 }
