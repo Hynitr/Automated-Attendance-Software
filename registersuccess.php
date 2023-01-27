@@ -56,7 +56,7 @@ if(!isset($_GET['ref'])) {
                 </div>
 
                 <div class="col-6">
-                <a href="./idcard?id=<?php echo $ref ?>" type="button" class="btn btn-primary d-grid w-100">Download ID Card</a>
+                <a href="./idcard?ref=<?php echo $ref ?>" type="button" class="btn btn-primary d-grid w-100">Download ID Card</a>
                 </div>
              
               </div>

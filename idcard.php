@@ -1,6 +1,6 @@
 <?php include("component/head.php"); 
 
-if(!isset($_GET['id'])) {
+if(!isset($_GET['ref'])) {
 
   redirect("./register");
 
@@ -8,77 +8,73 @@ if(!isset($_GET['id'])) {
 
 } else {
 
-  $ref = clean(escape($_GET['id']));
+  $ref = clean(escape($_GET['ref']));
 
 }
 
 ?>
+
+
+<style>
+  .card {
+    width: 3.5in !important;
+    height: 2.25in !important;
+}
+
+</style>
   <body>
-    <!-- Layout wrapper -->
-    <div class="layout-wrapper layout-content-navbar">
-      <div class="layout-container">
-        <!-- Menu -->
 
-       <?php include("component/aside.php") ?>
 
-        <!-- / Menu -->
+              <!-- Content wrapper -->
+              <div class="container m-auto">
 
-        <!-- Layout container -->
-        <div class="layout-page">
-          <!-- Navbar -->
+                    
 
-         <?php include("component/nav.php") ?>
+                      <div class="row mt-5 m-auto justify-content-center">
 
-          <!-- / Navbar -->
+                              <!-- Register Card -->
+                              <div class="card col-6 me-lg-5 mb-5">
+                                    <div class="card-body">
+                                      <!-- Logo -->
+                                    
+                                      <!-- /Logo -->
+                                    
+                                    
+                                    
+                                      
+                                    </div>
+                            </div>
+                            <!-- Register Card -->
 
-          <!-- Content wrapper -->
-          <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register Card -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-             
-              <!-- /Logo -->
-            
-              <h4 class="mb-2 mt-3">Registration Successful</h4>
-              <p class="mb-4">User registered successfully.</p>
 
-              <p class="mb-4" id="email" hidden><?php echo $t_admins['blkuser'] ?></p>
-              <p class="mb-4" id="ref" hidden><?php echo md5(rand()) ?></p>
-              <p class="mb-4" id="pkk" hidden><?php echo $t_admins['pkkey'] ?></p>
-              <p class="mb-4" id="amt" hidden><?php echo $t_admins['renewamt'] ?></p>
+                                   <!-- Register Card -->
+                              <div class="card col-6">
+                                    <div class="card-body">
+                                      
+                                    </div>
 
-              <div class="row container">
-                <div class="col-6">
-                <a href="./register" type="button" class="btn btn-primary d-grid w-100">Register New User</a>
-                </div>
+                              </div>
 
-                <div class="col-6">
-                <a href="./idcard?id=<?php echo $ref ?>" type="button" class="btn btn-primary d-grid w-100">Download ID Card</a>
-                </div>
-             
+
+                      </div>
+
+                    
+           
+              <!-- Content wrapper -->
               </div>
-            
-              
-            </div>
-          </div>
-          <!-- Register Card -->
-        </div>
-      </div>
-    </div>
 
-          
-          <!-- Content wrapper -->
-        </div>
-        <!-- / Layout page -->
-      </div>
 
-      <!-- Overlay -->
-      <div class="layout-overlay layout-menu-toggle"></div>
-    </div>
-    <!-- / Layout wrapper -->
+
+              <footer class="content-footer footer fixed-bottom">
+              <div class="d-flex flex-wrap justify-content-center text-center py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  <small> Developed by <a href="https://www.google.com/search?client=opera&q=abolade+greatness&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank" class="footer-link fw-bolder">Abolade Greatness</a> | Powered by
+                  <a href="https://hynitr.com" target="_blank" class="footer-link fw-bolder">Hynitr</a></small>
+                </div>
+                <p id="demo" hidden></p>
+              </div>
+              </footer>
+
 
     
 
