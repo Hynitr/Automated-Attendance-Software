@@ -114,7 +114,7 @@ if(!isset($_GET['ref'])) {
                                      
                                       
                                           
-                                          <div class="col-12 justify-content-center text-center" style="margin-top: -6% !important;">
+                                          <div class="col-12 justify-content-center text-center" style="margin-top: -8% !important;">
                                             <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important"><?php echo strtolower($t_admins['website']) ?></small>  
                                           </div>
                                         </div>
