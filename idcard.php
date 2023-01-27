@@ -17,8 +17,17 @@ if(!isset($_GET['ref'])) {
 
 <style>
   .card {
-    width: 3.5in !important;
-    height: 2.25in !important;
+
+    width: 2.25in !important;
+    height: 3.5in !important;
+    background-image: url("assets/img/bgs.png");
+    background-size: cover;
+}
+
+.bg-dark {
+
+  background-color: #000 !important;
+  color: #fff !important;
 }
 
 </style>
@@ -48,7 +57,7 @@ if(!isset($_GET['ref'])) {
 
 
                                    <!-- Register Card -->
-                              <div class="card col-6">
+                              <div class="card col-6 bg-dark">
                                     <div class="card-body">
                                       
                                     </div>
