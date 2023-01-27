@@ -1,7 +1,7 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
 <div class="app-brand demo">
   <a href="./" class="app-brand-link">
-  <img src='assets/img/logo.png' width="25" class="img-responsive img-fluid">
+  <img src='assets/img/<?php echo $logo ?>' width="25" class="img-responsive img-fluid">
     <span class="app-brand-text demo menu-text fw-bolder ms-2"> <?php echo ucwords($t_admins['alias']) ?></span>
   </a>
 

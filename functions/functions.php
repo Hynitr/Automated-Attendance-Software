@@ -38,6 +38,18 @@ function admin_details() {
 
 
 
+function getlogo() {
+
+     //users details
+     $sql = "SELECT * FROM `admin`";
+     $rsl = query($sql);
+
+     $row = mysqli_fetch_array($rsl);
+
+     $GLOBALS['logo'] = $row['logo'];
+}
+
+
 //signin admin
 if(isset($_POST['username']) && isset($_POST['password'])) {
 
