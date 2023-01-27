@@ -35,7 +35,7 @@ if(!isset($_GET['ref'])) {
 
 
               <!-- Content wrapper -->
-              <div class="container m-auto">
+              <div class="container m-auto" id="idcard">
 
                     
 
@@ -65,12 +65,35 @@ if(!isset($_GET['ref'])) {
                               </div>
 
 
+
+
+                            
+
                       </div>
 
                     
            
-              <!-- Content wrapper -->
+                      <div class="row mt-5 m-auto text-center justify-content-center">
+                             
+
+                              <div class="col-6">
+                              <a href="./idcard?ref=<?php echo $ref ?>" type="button" class="btn m-auto btn-primary w-100">Print</a>
+                              </div>
+
+
+                              <div class="col-6">
+                              <a href="./idcard?ref=<?php echo $ref ?>" type="button" class="btn m-auto btn-primary w-100">Go Back</a>
+                              </div>
+
+
+                      </div>
+
+
+             
               </div>
+
+
+              <br/><br/><br/><br/>
 
 
 
