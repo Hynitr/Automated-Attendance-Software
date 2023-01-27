@@ -1354,7 +1354,115 @@ function countabsentees() {
                 }
             }
         
-            echo $count;
+            echo number_format($count);
         }
+
+}
+
+
+function absenteesbytype($department, $dater) {
+
+    //get all users
+     $sql  = "SELECT * FROM users WHERE `department` = '$department'";
+     $res  = query($sql);
+
+     if(row_count($res) == "" || row_count($res) == null) {
+
+         //do nothing
+         die();
+
+     } else {
+
+         while($row = mysqli_fetch_array($res)) {
+
+             $atd = $row['AttendanceID'];
+             $date = $dater;
+             $month = date('m', strtotime($dater));
+             $year = date('Y', strtotime($dater));
+
+
+             //match their id with the log provided there is a time out
+             $sel = "SELECT *  FROM `log` WHERE `attendanceid` = '$atd' AND `date` = '$date'";
+             $log_res = query($sel);
+
+            if(row_count($log_res) == 0) {
+
+
+                //count the number of times the user appears in the log table for the current month
+                $cql = "SELECT COUNT(*) as count FROM `log` WHERE `attendanceid` = '$atd' AND MONTH(date) = '$month' AND YEAR(date) = '$year'";
+                $clog_res = query($cql);
+                $count = mysqli_fetch_array($clog_res)['count'];
+               
+
+
+                $ref = $atd;
+
+                getspecificuser($ref);
+                
+               echo '
+               <tr>
+               <td>'.$GLOBALS['specific_user']["AttendanceID"].'</td>
+               <td>'.$GLOBALS['specific_user']["Last Name"].' '.$GLOBALS['specific_user']["First Name"].'</td>
+               <td>'.$GLOBALS['specific_user']["department"].'</td>
+               <td>'.number_format($count).'</td>
+               </tr>
+               ';
+
+            }
+
+        }
+
+    }
+   
+}
+
+
+function latecomerbytype($department, $dater) { 
+
+    $date = date('Y-m-d', strtotime($dater));
+    $month = date('m', strtotime($dater));
+
+    
+
+    //get for the specific date
+    $sql = "SELECT * FROM `log` WHERE `date` = '$date' AND `status` = 'Late'";
+    $res = query($sql);
+
+    if(row_count($res) == '' || row_count($res) == null) {
+
+        echo "<p class='container text-danger'>No one came late today</p>";
+
+    } else {
+
+
+
+        while($row = mysqli_fetch_array($res)) {
+
+                    $attdid = $row['attendanceid'];
+                    $ref = $attdid;
+
+                    //get latcoming duration
+                    latecomerduration($attdid, $month);
+
+                    getspecificuser($ref);
+
+                    $department = $GLOBALS['specific_user']['department'];
+
+            echo '
+            
+            <tr>
+                        <td>'.$attdid.'</td>
+                        <td>'.$row['fullname'].'</td>
+                         <td>'.$department.'</td>
+                        <td class="text-danger">'.date("h:ia", strtotime($row['timein'])).'</td>
+                        <td>'.number_format($GLOBALS['latecomer']['latecomeduration']).'</td>
+                       
+                      </tr>
+            
+            
+            ';
+        }
+    }
+
 
 }
