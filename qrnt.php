@@ -1,3 +1,10 @@
+<?php 
+
+
+include("functions/init.php");
+
+?>
+
 <!DOCTYPE html>
 <html
   lang="en"
@@ -19,7 +26,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/img/logo.png" />
+    <link rel="icon" type="image/png" href="assets/img/<?php echo $logo ?>" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -58,7 +65,6 @@
 
     <?php
 
-    include("functions/init.php");
     validateqrid();
 
     ?>
@@ -74,7 +80,7 @@
                     <!-- Logo -->   
                 
                     <!-- /Logo -->
-                    <img src="assets/img/logo.png" width="50" class="img-responsive img-fluid">
+                    <img src="assets/img/<?php echo $logo ?>" width="50" class="img-responsive img-fluid">
                     <h4 class="text-success fw-bold mb-2 mt-3">Attendance Marked In</h4>
                     <p class="mb-4">User have been marked in </p>
 
@@ -106,7 +112,7 @@
                     <!-- Logo -->   
                 
                     <!-- /Logo -->
-                    <img src="assets/img/logo.png" width="50" class="img-responsive img-fluid">
+                    <img src="assets/img/<?php echo $logo ?>" width="50" class="img-responsive img-fluid">
                     <h4 class="text-success fw-bold mb-2 mt-3">Attendance Marked Out</h4>
                     <p class="mb-4">User have been marked out </p>
 

@@ -777,6 +777,10 @@ function saveattendancetolog($qrid) {
 
 function validateqrid() {
 
+    getlogo();
+
+    $logo = $GLOBALS['logo'];
+
 
     $err  = <<<DELIMITER
 
@@ -791,7 +795,7 @@ function validateqrid() {
                     <!-- Logo -->
                 
                     <!-- /Logo -->
-                    <img src="assets/img/logo.png" width="50" class="img-responsive img-fluid">
+                    <img src="assets/img/$logo" width="50" class="img-responsive img-fluid">
                     <h4 class="text-danger fw-bold mb-2 mt-3">Invalid ID Card</h4>
                     <p class="mb-4">The ID Card Scanned is invalid</p>
 
