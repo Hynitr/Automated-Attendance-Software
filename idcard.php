@@ -19,6 +19,13 @@ if(!isset($_GET['ref'])) {
 
 
 <style>
+
+  @font-face {
+    font-family: inter;
+    src: url('assets/font/Inter-Medium.ttf');
+}
+
+
   .card {
 
     width: 2.25in !important;
@@ -36,8 +43,17 @@ if(!isset($_GET['ref'])) {
 .text-dark {
 
   color: #000 !important;
+  font-family: inter;
 }
 
+.card-footer {
+
+  margin-top: -15% !important;
+}
+#nme {
+
+  border-radius: 0% 5% 5% 0% !important;
+}
 </style>
   <body>
 
@@ -49,36 +65,70 @@ if(!isset($_GET['ref'])) {
 
                       <div class="row mt-5 m-auto justify-content-center" id="idcard">
 
-                              <!-- Register Card -->
-                              <div class="card me-3 mb-5">
-                                    <div class="card-body justify-content-center text-center">
+                                  <!-- Register Card -->
+                                  <div class="card col-3 me-3 mb-5">
+                                        <div class="card-body justify-content-center text-center">
+                                        
+                                              <div class="">
+                                                <img src="assets/img/logo (7).png" class="img-responsive img-fluid mb-1" style="width: 30px">
+                                                
+                                              </div>
+
+                                              <div class="col-12">
+                                                <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important; margin-bottom: 0.2rem !important" class="text-dark fw-bold"><?php echo strtoupper($t_admins['school']) ?></h6>
+                                                <p class="text-muted" style="font-size: 8px; margin-bottom: 0rem !important; color: #000 !important"><?php echo ucfirst($t_admins['addr']) ?></p>  
+                                                <p class="text-muted" style="font-size: 6px; margin-top: 0rem !important; color: #000 !important"><?php echo ucfirst($t_admins['tel']) ?></p>  
+                                              
+                                              </div>
+
+
+
+
+                                              <div class="col-12">
+                                                
+                                              <img src="upload/passport/<?php echo $specific_user['Passport'] ?>" class="img-responsive rounded-circle mb-1" style="width: 80% ;margin-left: -1rem !important; margin-right: -1rem !important;">
+                                                   
+                                              </div>
+                                      
+                                          
+                                        </div>
+
+                                        <div class="card-footer">
+
+                                          <div class="row">
+
+                                              <div class="col-4">
+
+                                              <img src="upload/qrcode/<?php echo $specific_user['qrcode'] ?>" class="img-responsive " style="width: 55px; margin-left: -1rem !important; margin-right: -1rem !important;">
+                                                    
+                                              </div>
+                                              
+
+                                              <div class="col-8 mt-1">
+                                             
+                                              <p id="nme" class="bg-dark py-2 px-3 fw-bold" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;"><?php echo ucwords($specific_user['Last Name']." ".$specific_user['First Name']) ?></p>  
+                                        
+                                              </div>
+                                          </div>
+
                                      
-                                    <div class="">
-                                      <img src="assets/img/logo (7).png" class="img-responsive img-fluid mb-1" style="width: 40px">
                                       
-                                    </div>
-
-                                    <div class="col-12">
-                                    <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important" class="text-dark fw-bold"><?php echo strtoupper($t_admins['school']) ?></h6>
-                                    </div>
-                                    
-                                    
-                                      
-                                    </div>
-                            </div>
-                            <!-- Register Card -->
+                                          
+                                          <div class="col-12 justify-content-center text-center" style="margin-top: -6% !important;">
+                                            <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important"><?php echo strtolower($t_admins['website']) ?></small>  
+                                          </div>
+                                        </div>
+                                </div>
+                                <!-- Register Card -->
 
 
-                                   <!-- Register Card -->
-                              <div class="card bg-dark">
+                               <!-- Register Card -->
+                              <div class="card col-3 bg-dark me-3 mb-5">
                                     <div class="card-body">
                                       
                                     </div>
 
                               </div>
-
-
-
 
                             
 
