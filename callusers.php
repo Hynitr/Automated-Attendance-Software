@@ -23,7 +23,16 @@ if(!isset($_GET['cat'])) {
 
                <!-- Responsive Table -->
                <div class="card mb-5">
-                <h5 class="card-header text-dark"><?php echo $cat ?></h5>
+                <div class="row">
+                  <div class="col-6">
+                  <h5 class="card-header text-dark"><?php echo $cat ?></h5>
+                  </div>
+               
+                  <div class="col-6 text-end py-3 px-5">
+                  <a href="./allcard?cat=<?php echo $cat ?>" class="btn m-auto btn-primary">Generate ID Card</a>
+                  </div>
+                </div>
+                
                 <div class="container table-responsive text-nowrap">
                   <table class="table">
                     <thead>

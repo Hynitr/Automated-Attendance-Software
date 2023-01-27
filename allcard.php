@@ -1,17 +1,16 @@
 <?php include("component/head.php"); 
 
-if(!isset($_GET['ref'])) {
+if(!isset($_GET['cat'])) {
 
-  redirect("./register");
+  redirect("./view");
 
   die();
 
 } else {
 
-  $ref = clean(escape($_GET['ref']));
+  $cat = clean(escape($_GET['cat']));
 
-  getspecificuser($ref);
-  admin_details();
+  getallcarduser($cat);
 
 }
 
