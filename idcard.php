@@ -48,11 +48,18 @@ if(!isset($_GET['ref'])) {
 
 .card-footer {
 
-  margin-top: -15% !important;
+  margin-top: -22% !important;
 }
 #nme {
 
   border-radius: 0% 5% 5% 0% !important;
+}
+
+.circular-image {
+    width: 140px; /* set a fixed width */
+    height: 140px; /* set a fixed height */
+    border-radius: 50%; /* set the radius to half the width and height to create a circle */
+     /* this will make sure the image covers the entire area */
 }
 
 </style>
@@ -71,7 +78,7 @@ if(!isset($_GET['ref'])) {
                                         <div class="card-body justify-content-center text-center">
                                         
                                               <div class="">
-                                                <img src="assets/img/logo (7).png" class="img-responsive img-fluid mb-1" style="width: 30px">
+                                                <img src="assets/img/<?php echo $logo ?>" class="img-responsive img-fluid mb-1" style="width: 30px">
                                                 
                                               </div>
 
@@ -85,9 +92,9 @@ if(!isset($_GET['ref'])) {
 
 
 
-                                              <div class="col-12">
+                                              <div>
                                                 
-                                              <img src="upload/passport/<?php echo $specific_user['Passport'] ?>" class="img-responsive rounded-circle mb-1" style="width: 80% ;margin-left: -1rem !important; margin-right: -1rem !important;">
+                                              <img src="upload/passport/<?php echo $specific_user['Passport'] ?>" class="img-responsive circular-image mb-1" style="margin-left: -1rem !important; margin-right: -1rem !important;">
                                                    
                                               </div>
                                       
@@ -98,9 +105,9 @@ if(!isset($_GET['ref'])) {
 
                                           <div class="row">
 
-                                              <div class="col-4">
+                                              <div class="col-3">
 
-                                              <img src="upload/qrcode/<?php echo $specific_user['qrcode'] ?>" class="img-responsive " style="width: 55px; margin-left: -1rem !important; margin-right: -1rem !important;">
+                                              <img src="upload/qrcode/<?php echo $specific_user['qrcode'] ?>" class="img-responsive" style="width:40px; margin-left: -1rem !important; margin-right: -1rem !important;">
                                                     
                                               </div>
                                               
@@ -115,7 +122,7 @@ if(!isset($_GET['ref'])) {
                                      
                                       
                                           
-                                          <div class="col-12 justify-content-center text-center" style="margin-top: -8% !important;">
+                                          <div class="col-12 justify-content-center text-center" style="margin-top: -10% !important;">
                                             <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important"><?php echo strtolower($t_admins['website']) ?></small>  
                                           </div>
                                         </div>
