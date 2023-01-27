@@ -96,20 +96,13 @@
                       <tr class="text-nowrap">
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Role</th>
-                        <th>No. of times absent</th>
+                        <th>Department</th>
+                        <th>No. of times present</th>
                         <th></th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                      </tr>
-                      
+                       <?php echo  absentees() ?>
                     </tbody>
                   </table>
                 </div>

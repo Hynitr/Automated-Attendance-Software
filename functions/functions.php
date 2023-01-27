@@ -1271,3 +1271,60 @@ function checkvalidbirthday() {
     }
 
 }
+
+
+function absentees() {
+
+    //get all users
+     $sql  = "SELECT * FROM users";
+     $res  = query($sql);
+
+     if(row_count($res) == "" || row_count($res) == null) {
+
+         //do nothing
+         die();
+
+     } else {
+
+         while($row = mysqli_fetch_array($res)) {
+
+             $atd = $row['AttendanceID'];
+             $date = date("Y-m-d");
+             $month = date("m");
+             $year = date("Y");
+
+
+             //match their id with the log provided there is a time out
+             $sel = "SELECT *  FROM `log` WHERE `attendanceid` = '$atd' AND `date` = '$date'";
+             $log_res = query($sel);
+
+            if(row_count($log_res) == 0) {
+
+
+                  //count the number of times the user appears in the log table for the current month
+                $cql = "SELECT COUNT(*) as count FROM `log` WHERE `attendanceid` = '$atd' AND MONTH(date) = '$month' AND YEAR(date) = '$year'";
+                $clog_res = query($cql);
+                $count = mysqli_fetch_array($clog_res)['count'];
+               
+
+
+                $ref = $atd;
+
+                getspecificuser($ref);
+                
+               echo '
+               <tr>
+               <td>'.$GLOBALS['specific_user']["AttendanceID"].'</td>
+               <td>'.$GLOBALS['specific_user']["Last Name"].' '.$GLOBALS['specific_user']["First Name"].'</td>
+               <td>'.$GLOBALS['specific_user']["department"].'</td>
+               <td>'.number_format($count).'</td>
+               </tr>
+               ';
+
+            }
+
+        }
+
+    }
+   
+}
