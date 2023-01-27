@@ -54,6 +54,7 @@ if(!isset($_GET['ref'])) {
 
   border-radius: 0% 5% 5% 0% !important;
 }
+
 </style>
   <body>
 
@@ -125,7 +126,16 @@ if(!isset($_GET['ref'])) {
                                <!-- Register Card -->
                               <div class="card col-3 bg-dark me-3 mb-5">
                                     <div class="card-body">
-                                      
+                                          <div class="col-12">
+                                              
+                                          <ul class="dotted-list" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;">
+                                            <li class="col-10 mb-4 mt-3 fw-bold">This Identity Card is an official document and relates to the person described</li>
+                                            <li class="col-10 mb-4 fw-bold">Impersonation, alternation, Destruction or transfer of the authorised holder to another person is a penal offence</li>
+                                            <li class="col-10 mb-4 fw-bold">If found, kindly return to the address stated in front of this card</li>
+                                          </ul>
+
+                                                    
+                                          </div>
                                     </div>
 
                               </div>
@@ -145,7 +155,7 @@ if(!isset($_GET['ref'])) {
 
 
                               <div class="col-6">
-                              <button class="btn m-auto btn-primary w-100" onclick="printPage();">Go Back</buttonhref=>
+                              <button class="btn m-auto btn-primary w-100" onclick="window.history.back();">Go Back</buttonhref=>
                               </div>
 
 
