@@ -10,6 +10,9 @@ if(!isset($_GET['ref'])) {
 
   $ref = clean(escape($_GET['ref']));
 
+  getspecificuser($ref);
+  admin_details();
+
 }
 
 ?>
@@ -30,24 +33,34 @@ if(!isset($_GET['ref'])) {
   color: #fff !important;
 }
 
+.text-dark {
+
+  color: #000 !important;
+}
+
 </style>
   <body>
 
 
               <!-- Content wrapper -->
-              <div class="container m-auto" id="idcard">
+              <div class="container">
 
                     
 
-                      <div class="row mt-5 m-auto justify-content-center">
+                      <div class="row mt-5 m-auto justify-content-center" id="idcard">
 
                               <!-- Register Card -->
-                              <div class="card col-6 me-lg-5 mb-5">
-                                    <div class="card-body">
-                                      <!-- Logo -->
-                                    
-                                      <!-- /Logo -->
-                                    
+                              <div class="card me-3 mb-5">
+                                    <div class="card-body justify-content-center text-center">
+                                     
+                                    <div class="">
+                                      <img src="assets/img/logo (7).png" class="img-responsive img-fluid mb-1" style="width: 40px">
+                                      
+                                    </div>
+
+                                    <div class="col-12">
+                                    <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important" class="text-dark fw-bold"><?php echo strtoupper($t_admins['school']) ?></h6>
+                                    </div>
                                     
                                     
                                       
@@ -57,7 +70,7 @@ if(!isset($_GET['ref'])) {
 
 
                                    <!-- Register Card -->
-                              <div class="card col-6 bg-dark">
+                              <div class="card bg-dark">
                                     <div class="card-body">
                                       
                                     </div>
@@ -77,12 +90,12 @@ if(!isset($_GET['ref'])) {
                              
 
                               <div class="col-6">
-                              <a href="./idcard?ref=<?php echo $ref ?>" type="button" class="btn m-auto btn-primary w-100">Print</a>
+                              <button class="btn m-auto btn-primary w-100" onclick="printPage();">Print</buttonhref=>
                               </div>
 
 
                               <div class="col-6">
-                              <a href="./idcard?ref=<?php echo $ref ?>" type="button" class="btn m-auto btn-primary w-100">Go Back</a>
+                              <button class="btn m-auto btn-primary w-100" onclick="printPage();">Go Back</buttonhref=>
                               </div>
 
 
@@ -129,6 +142,13 @@ if(!isset($_GET['ref'])) {
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
    
+    <script>
+      function printPage() {
+          var printArea = document.getElementById("idcard");
+          window.print(printArea);
+      }
+    </script> 
+
 
   </body>
 </html>
