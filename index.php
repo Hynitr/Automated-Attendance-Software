@@ -46,7 +46,7 @@
                         <div class="card-body">
                           
                           <span class="fw-semibold d-block mb-1 text-dark">Absentee / Late Comers</span>
-                          <h4 class="card-title mb-2 text-dark"><?php echo countabsentees()." ".totallatecomer() ?></h4>
+                          <h4 class="card-title mb-2 text-dark"><?php echo countabsentees()." / ".totallatecomer() ?></h4>
                           <small class="text-primary fw-semibold ">View all <i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>

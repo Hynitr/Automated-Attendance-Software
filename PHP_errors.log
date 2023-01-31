@@ -1,1 +1,5 @@
 [31-Jan-2023 13:38:00 Europe/Berlin] PHP Parse error:  syntax error, unexpected identifier "xs", expecting "," or ";" in C:\xampp\htdocs\attendance\index.php on line 49
+[31-Jan-2023 13:39:51 Africa/Lagos] PHP Fatal error:  Uncaught Error: Call to undefined function getallcarduser() in C:\xampp\htdocs\attendance\allcard.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\attendance\allcard.php on line 13

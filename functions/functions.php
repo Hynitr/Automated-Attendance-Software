@@ -437,7 +437,7 @@ function afterpayment() {
 
 function getcategories() {
 
-    $sql = "SELECT * FROM `category` ORDER BY `category` ASC";
+    $sql = "SELECT * FROM `category`";
     $res = query($sql);
 
     if(row_count($res) == '' || row_count($res) == null) {
