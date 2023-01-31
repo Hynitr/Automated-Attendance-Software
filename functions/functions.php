@@ -1353,8 +1353,11 @@ function countabsentees() {
         $res  = query($sql);
 
         if(row_count($res) == "" || row_count($res) == null) {
+
+            $count = 0;
+            echo $count;
             //do nothing
-            die();
+        
             
         } else {
             $count = 0;
