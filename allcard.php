@@ -10,12 +10,11 @@ if(!isset($_GET['cat'])) {
 
   $cat = clean(escape($_GET['cat']));
 
-  getallcarduser($cat);
+  
 
 }
 
 ?>
-
 
 <style>
 
@@ -72,80 +71,8 @@ if(!isset($_GET['cat'])) {
 
                       <div class="row mt-5 m-auto justify-content-center" id="idcard">
 
-                                  <!-- Register Card -->
-                                  <div class="card col-3 me-3 mb-5">
-                                        <div class="card-body justify-content-center text-center">
-                                        
-                                              <div class="">
-                                                <img src="assets/img/<?php echo $logo ?>" class="img-responsive img-fluid mb-1" style="width: 30px">
-                                                
-                                              </div>
-
-                                              <div class="col-12">
-                                                <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important; margin-bottom: 0.2rem !important" class="text-dark fw-bold"><?php echo strtoupper($t_admins['school']) ?></h6>
-                                                <p class="text-muted" style="font-size: 8px; margin-bottom: 0rem !important; color: #000 !important"><?php echo ucfirst($t_admins['addr']) ?></p>  
-                                                <p class="text-muted" style="font-size: 6px; margin-top: 0rem !important; color: #000 !important"><?php echo ucfirst($t_admins['tel']) ?></p>  
-                                              
-                                              </div>
-
-
-
-
-                                              <div>
-                                                
-                                              <img src="upload/passport/<?php echo $specific_user['Passport'] ?>" class="img-responsive circular-image mb-1" style="margin-left: -1rem !important; margin-right: -1rem !important;">
-                                                   
-                                              </div>
-                                      
-                                          
-                                        </div>
-
-                                        <div class="card-footer">
-
-                                          <div class="row">
-
-                                              <div class="col-3">
-
-                                              <img src="upload/qrcode/<?php echo $specific_user['qrcode'] ?>" class="img-responsive" style="width:40px; margin-left: -1rem !important; margin-right: -1rem !important;">
-                                                    
-                                              </div>
-                                              
-
-                                              <div class="col-8 mt-1">
-                                             
-                                              <p id="nme" class="bg-dark py-2 px-3 fw-bold" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;"><?php echo ucwords($specific_user['Last Name']." ".$specific_user['First Name']) ?></p>  
-                                        
-                                              </div>
-                                          </div>
-
-                                     
-                                      
-                                          
-                                          <div class="col-12 justify-content-center text-center" style="margin-top: -10% !important;">
-                                            <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important"><?php echo strtolower($t_admins['website']) ?></small>  
-                                          </div>
-                                        </div>
-                                </div>
-                                <!-- Register Card -->
-
-
-                               <!-- Register Card -->
-                              <div class="card col-3 bg-dark me-3 mb-5">
-                                    <div class="card-body">
-                                          <div class="col-12">
-                                              
-                                          <ul class="dotted-list" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;">
-                                            <li class="col-10 mb-4 mt-3 fw-bold">This Identity Card is an official document and relates to the person described</li>
-                                            <li class="col-10 mb-4 fw-bold">Impersonation, alternation, Destruction or transfer of the authorised holder to another person is a penal offence</li>
-                                            <li class="col-10 mb-4 fw-bold">If found, kindly return to the address stated in front of this card</li>
-                                          </ul>
-
-                                                    
-                                          </div>
-                                    </div>
-
-                              </div>
-
+                              
+                      <?php echo getallcarduser($cat); ?>
                             
 
                       </div>

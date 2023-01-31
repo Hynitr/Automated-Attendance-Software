@@ -1485,3 +1485,109 @@ function latecomerbytype($department, $dater) {
 
 
 }
+
+
+function getallcarduser($cat) {
+
+    $sql = "SELECT * FROM `users` WHERE `department` =  '$cat'";
+    $res = query($sql);
+
+    if(row_count($res) == '' || row_count($res) == null)  {
+
+        echo 'no users found';
+
+    } else {
+
+        admin_details();
+
+        while($row = mysqli_fetch_array($res)) {
+            
+            $ref = $row['AttendanceID'];
+            getspecificuser($ref);  
+            
+            
+            echo '
+            
+            
+            <!-- Register Card -->
+            <div class="card col-3 me-3 mb-5">
+                  <div class="card-body justify-content-center text-center">
+                  
+                        <div class="">
+                          <img src="assets/img/logo/logo.png" class="img-responsive img-fluid mb-1" style="width: 30px">
+                          
+                        </div>
+
+                        <div class="col-12">
+                          <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important; margin-bottom: 0.2rem !important" class="text-dark fw-bold">'.strtoupper($GLOBALS['t_admins']['school']).'</h6>
+                          <p class="text-muted" style="font-size: 8px; margin-bottom: 0rem !important; color: #000 !important">'.ucfirst($GLOBALS['t_admins']['addr']).'</p>  
+                          <p class="text-muted" style="font-size: 6px; margin-top: 0rem !important; color: #000 !important">'.ucfirst($GLOBALS['t_admins']['tel']).'</p>  
+                        
+                        </div>
+
+
+
+
+                        <div>
+                          
+                        <img src="upload/passport/'.$GLOBALS['specific_user']['Passport'].'" class="img-responsive circular-image mb-1" style="margin-left: -1rem !important; margin-right: -1rem !important;">
+                             
+                        </div>
+                
+                    
+                  </div>
+
+                  <div class="card-footer">
+
+                    <div class="row">
+
+                        <div class="col-3">
+
+                        <img src="upload/qrcode/'.$GLOBALS['specific_user']['qrcode'].'" class="img-responsive" style="width:40px; margin-left: -1rem !important; margin-right: -1rem !important;">
+                              
+                        </div>
+                        
+
+                        <div class="col-8 mt-1">
+                       
+                        <p id="nme" class="bg-dark py-2 px-2 fw-bold" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;">'.ucwords($GLOBALS['specific_user']['Last Name'].'" "'.$GLOBALS['specific_user']['First Name']).'</p>  
+                  
+                        </div>
+                    </div>
+
+               
+                
+                    
+                    <div class="col-12 justify-content-center text-center" style="margin-top: -10% !important;">
+                      <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important">'.strtolower($GLOBALS['t_admins']['website']).'</small>  
+                    </div>
+                  </div>
+          </div>
+          <!-- Register Card -->
+
+
+         <!-- Register Card -->
+        <div class="card col-3 bg-dark me-3 mb-5">
+              <div class="card-body">
+                    <div class="col-12">
+                        
+                    <ul class="dotted-list" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;">
+                      <li class="col-10 mb-4 mt-3 fw-bold">This Identity Card is an official document and relates to the person described</li>
+                      <li class="col-10 mb-4 fw-bold">Impersonation, alternation, Destruction or transfer of the authorised holder to another person is a penal offence</li>
+                      <li class="col-10 mb-4 fw-bold">If found, kindly return to the address stated in front of this card</li>
+                    </ul>
+
+                              
+                    </div>
+              </div>
+
+        </div>
+
+            
+            ';
+        }
+
+    }
+    
+
+}
