@@ -1297,8 +1297,8 @@ function absentees() {
 
      if(row_count($res) == "" || row_count($res) == null) {
 
-         //do nothing
-         die();
+        echo "<p class='container text-danger'>No one is absent today</p>";
+         
 
      } else {
 

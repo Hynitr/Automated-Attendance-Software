@@ -28,7 +28,7 @@ if(!isset($_GET['cat'])) {
                   <h5 class="card-header text-dark"><?php echo $cat ?></h5>
                   </div>
                
-                  <div class="col-6 text-end py-3 px-5">
+                  <div class="col-lg-6 col-12 text-end py-3 px-5">
                   <a href="./allcard?cat=<?php echo $cat ?>" class="btn m-auto btn-primary">Generate ID Card</a>
                   </div>
                 </div>

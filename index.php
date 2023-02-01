@@ -102,7 +102,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                       <?php echo  absentees() ?>
+                       <?php echo absentees(); ?>
                     </tbody>
                   </table>
                 </div>
