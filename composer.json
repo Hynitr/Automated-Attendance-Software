@@ -1,0 +1,5 @@
+{
+    "require": {
+        "green-api/whatsapp-api-client-php": "^0.2.0"
+    }
+}
