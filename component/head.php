@@ -1,5 +1,4 @@
-<?php 
-include("functions/init.php");
+<?php include("functions/init.php");
 
 admin_details();
 
@@ -97,5 +96,4 @@ admin_details();
           window.location.assign("./expiry");
         }
       }, 1000);
-</script>
-  
+</script> 
