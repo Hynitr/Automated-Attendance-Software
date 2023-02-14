@@ -1,4 +1,4 @@
-  <?php include("component/head.php"); ?>
+<?php include("component/head.php"); ?>
   <body>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
