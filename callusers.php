@@ -47,6 +47,7 @@ if(!isset($_GET['cat'])) {
                       </tr>
                     </thead>
                     <tbody>
+                      
                      <?php echo getcategoriesbytype($cat); ?>
                       
                     </tbody>

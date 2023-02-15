@@ -473,7 +473,7 @@ function getcategoriesbytype($cat) {
                 echo '
                 <tr>
                 <td>'.$row['AttendanceID'].'</td>
-                <td> <img src="upload/passport/'.$row['Passport'].'" alt="'.$row['Last Name'].' '.$row['First Name'].'" class="img-fluid img-responsive" width="50" />
+                <td> <img src="upload/passport/'.$row['Passport'].'" alt="'.$row['Last Name'].' '.$row['First Name'].'" class="img-fluid img-responsive mb-2" width="50" /> <br/>
                   '.$row['Last Name'].' '.$row['First Name'].'</td>
                 <td>'.date('D, M d, Y', strtotime($row['dob'])).'</td>
                 <td>'.$row['Gender'].'</td>
