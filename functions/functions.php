@@ -162,7 +162,7 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
                 //html PNG location prefix
                 $PNG_WEB_DIR = '../upload/qrcode/';
                 
-                include "../Qr/qrlib.php";    
+                include "../QR/qrlib.php";    
 
 
                 //ofcourse we need rights to create temp dir
@@ -1589,5 +1589,30 @@ function getallcarduser($cat) {
 
     }
     
+
+}
+
+if(isset($_POST['helopb']) && isset($_POST['passport'])) {
+
+    echo "hey";
+
+    $file = $_FILES['passport']['tmp_name'];
+    $chunk_size = 1024 * 1024; // 1 MB
+    $handle = fopen($file, 'rb');
+    $file_size = filesize($file);
+    $i = 0;
+
+    while (!feof($handle)) {
+        $chunk = fread($handle, $chunk_size);
+        file_put_contents('chunk_'.$i, $chunk);
+        $i++;
+        $percent_complete = ($i * $chunk_size) / $file_size * 100;
+        echo $percent_complete.'%';
+        ob_flush();
+        flush();
+    }
+
+    fclose($handle);
+    echo 'upload complete';
 
 }

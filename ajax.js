@@ -250,4 +250,38 @@ $(document).ready(function () {
 
 
 
+    //testchunk
+    $("#testchunk").click(function () {
+
+      var passport  = $("#filechunk")[0].files[0];
+      var helopb    = "codechunk";
+  
+    
+              if(passport == "" || passport == null) {
+  
+                $(toastr.error("Kindly provide valid passport"));
+  
+              } else {
+  
+                $(toastr.clear());
+                $("#testchunk").html("Submitting... Please wait");
+  
+  
+                var formData = new FormData();
+                formData.append("helopb", helopb);
+                formData.append("passport", passport);
+                $.ajax({
+                  url: "functions/init.php",
+                  type: "POST",
+                  data: formData,
+                  processData: false,
+                  contentType: false,
+                  success: function(data) {
+                    $(toastr.success(data));
+                  }
+                });
+  
+              }
+    });
+
 });
