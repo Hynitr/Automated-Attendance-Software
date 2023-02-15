@@ -1550,7 +1550,7 @@ function getallcarduser($cat) {
 
                         <div class="col-8 mt-1">
                        
-                        <p id="nme" class="bg-dark py-2 px-2 fw-bold" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;">'.ucwords($GLOBALS['specific_user']['Last Name'].'" "'.$GLOBALS['specific_user']['First Name']).'</p>  
+                        <p id="nme" class="bg-dark py-2 px-2 fw-bold" style="font-size: 10px; margin-top: 0rem !important;margin-left: -1rem !important; margin-right: -1rem !important;">'.ucwords($GLOBALS['specific_user']['Last Name'].' '.$GLOBALS['specific_user']['First Name']).'</p>  
                   
                         </div>
                     </div>
