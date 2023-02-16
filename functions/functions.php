@@ -753,7 +753,7 @@ function saveattendancetolog($qrid) {
                 echo '
                 <script>
                 $(toastr.clear());
-                $(toastr.success("Attendance Successful"));
+                $(toastr.success("Attendanced Successful"));
                 $("#default").hide();
                 $("#marked").show();
                 </script>
