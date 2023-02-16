@@ -977,7 +977,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
     }
 
 
-    bulksmsapicall($username, $password, $msg, $mobile, $sender);
+    //bulksmsapicall($username, $password, $msg, $mobile, $sender);
 }
 
 
