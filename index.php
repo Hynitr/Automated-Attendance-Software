@@ -29,7 +29,7 @@
                 <div class="col-lg-6 col-md-4 order-1">
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-6 mb-4">
-                      <div class="card">
+                      <div class="card h-100">
                         <a href="./view">
                         <div class="card-body">
                           
@@ -41,7 +41,7 @@
                       </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
+                    <div class="card h-100">
                         <a href="./absentee">
                         <div class="card-body">
                           
@@ -58,13 +58,13 @@
                 <div class="col-lg-6 col-md-4 order-1">
                   <div class="row">
                     <div class="col-lg-6 col-md-12 col-6 mb-4">
-                    <div class="card">
+                    <div class="card h-100">
                         <a target="_blank" href="./expiry">
                         <div class="card-body">
                           
                           <span class="fw-semibold d-block mb-1 text-dark">Next Renewal</span>
                           
-                          <h4 class="card-title mb-2 text-danger" id="demo"></h4>
+                          <h5 class="card-title mb-2 text-danger" id="demo"></h5>
                           <small class="text-primary fw-semibold ">Renew<i class="bx bx-right-arrow-alt"></i></small>
                         </div>
                         </a>
@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-6 mb-4">
                     <div class="card">
-                        <a target="_blank" href="https://portal.nigeriabulksms.com">
+                        <a target="_blank" href="https://portal.nigeriabulksms.com/recharge">
                         <div class="card-body">
                           
                           <span class="fw-semibold d-block mb-1 text-dark">SMS Unit Balance</span>

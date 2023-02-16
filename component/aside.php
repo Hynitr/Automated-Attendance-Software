@@ -49,7 +49,7 @@
   </li>
   <!-- User interface -->
   <li class="menu-item">
-    <a href="https://portal.nigeriabulksms.com/recharge" class="menu-link">
+    <a target="_blank" href="https://portal.nigeriabulksms.com/recharge" class="menu-link">
       <i class="menu-icon tf-icons bx bx-money"></i>
       <div data-i18n="User interface">Buy SMS Credit</div>
     </a>
