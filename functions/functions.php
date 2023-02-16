@@ -44,9 +44,9 @@ function getlogo() {
      $sql = "SELECT * FROM `admin`";
      $rsl = query($sql);
 
-     $row = mysqli_fetch_array($rsl);
+     $GLOBALS['t_attend'] = mysqli_fetch_array($rsl);
 
-     $GLOBALS['logo'] = $row['logo'];
+     $GLOBALS['logo'] = $GLOBALS['t_attend']['logo'];
 }
 
 
@@ -180,7 +180,7 @@ if(isset($_POST['fname']) && isset($_POST['lname']) && isset($_POST['attdid']) &
 
                
                 //generate unqiue ID
-                QRcode::png($GLOBALS['t_admins']['website'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
+                QRcode::png($GLOBALS['t_admins']['web2'].'/qrnt?id='.$d.'', $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
 
 
                 // benchmark
@@ -588,9 +588,9 @@ function statusdeterminer() {
     $time = date("h:i:sa");
 
     //status determiner
-    admin_details();
+    getlogo();
     
-    $expectedtimein = $GLOBALS['t_admins']['expectedtimein'];
+    $expectedtimein = $GLOBALS['t_attend']['expectedtimein'];
 
     if($time > $expectedtimein) {
 
@@ -920,16 +920,17 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
 
 
     getspecificuser($ref);
-    admin_details();
+
+    getlogo();
 
 
      // Initialize variables ( set your variables here )
 
-    $username = $GLOBALS['t_admins']['blkuser'];
+    $username = $GLOBALS['t_attend']['blkuser'];
 
-    $password = $GLOBALS['t_admins']['blkpword'];
+    $password = $GLOBALS['t_attend']['blkpword'];
 
-    $sender   = $GLOBALS['t_admins']['alias'];
+    $sender   = $GLOBALS['t_attend']['alias'];
 
 
 
@@ -939,7 +940,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
     if($role == 'Staff' && $type == 'am') {
 
         $msg    = $fullname." resumed ".$statusdet." - ".$time;
-        $mobile = $GLOBALS['t_admins']['tel'];
+        $mobile = $GLOBALS['t_attend']['tel'];
 
 
     } else {
@@ -947,7 +948,7 @@ function sendsmsnotificationforattendace($qrid, $statusdet) {
         if($role == 'Staff' && $type == 'pm') {
 
             $msg    = $fullname." closed at - ".$time;
-            $mobile = $GLOBALS['t_admins']['tel'];
+            $mobile = $GLOBALS['t_attend']['tel'];
     
     
         } else {
@@ -1019,11 +1020,11 @@ function bulksmsapicall($username, $password, $msg, $mobile, $sender) {
 function whatsappnotifyattendance($mobile, $msg) {
 
                 
-            admin_details();
+            getlogo();
 
             // Initialize variables ( set your variables here )
-            $token      = $GLOBALS['t_admins']['token'];
-            $instanceid = $GLOBALS['t_admins']['instanceid'];
+            $token      = $GLOBALS['t_attend']['token'];
+            $instanceid = $GLOBALS['t_attend']['instanceid'];
 
 
             //add country code to mobiles
@@ -1210,18 +1211,18 @@ function birthdaynotify() {
             $ref = $row['AttendanceID'];
             
             getspecificuser($ref);
-            admin_details();
+            getlogo();
         
         
              // Initialize variables ( set your variables here )
         
-            $username = $GLOBALS['t_admins']['blkuser'];
+            $username = $GLOBALS['t_attend']['blkuser'];
         
-            $password = $GLOBALS['t_admins']['blkpword'];
+            $password = $GLOBALS['t_attend']['blkpword'];
 
-            $name   = $GLOBALS['specific_user']['First Name'];
+            $name   = $GLOBALS['t_attend']['First Name'];
         
-            $sender   = $GLOBALS['t_admins']['alias'];
+            $sender   = $GLOBALS['t_attend']['alias'];
 
             $mobile = $GLOBALS['specific_user']['Telephone1'].','.$GLOBALS['specific_user']['Telephone2'];
 
@@ -1245,9 +1246,9 @@ function birthdaynotify() {
 
 function checkvalidbirthday() {
 
-    admin_details();
+    getlogo();
 
-    $startyear =  $username = $GLOBALS['t_admins']['startyear'];
+    $startyear = $GLOBALS['t_attend']['startyear'];
     $year      = date("Y");
 
 
@@ -1498,7 +1499,7 @@ function getallcarduser($cat) {
 
     } else {
 
-        admin_details();
+        getlogo();
 
         while($row = mysqli_fetch_array($res)) {
             
@@ -1519,9 +1520,9 @@ function getallcarduser($cat) {
                         </div>
 
                         <div class="col-12">
-                          <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important; margin-bottom: 0.2rem !important" class="text-dark fw-bold">'.strtoupper($GLOBALS['t_admins']['school']).'</h6>
-                          <p class="text-muted" style="font-size: 8px; margin-bottom: 0rem !important; color: #000 !important">'.ucfirst($GLOBALS['t_admins']['addr']).'</p>  
-                          <p class="text-muted" style="font-size: 6px; margin-top: 0rem !important; color: #000 !important">'.ucfirst($GLOBALS['t_admins']['tel']).'</p>  
+                          <h6 style="font-size: 12px; margin-left: -1rem !important; margin-right: -1rem !important; margin-bottom: 0.2rem !important" class="text-dark fw-bold">'.strtoupper($GLOBALS['t_attend']['school']).'</h6>
+                          <p class="text-muted" style="font-size: 8px; margin-bottom: 0rem !important; color: #000 !important">'.ucfirst($GLOBALS['t_attend']['addr']).'</p>  
+                          <p class="text-muted" style="font-size: 6px; margin-top: 0rem !important; color: #000 !important">'.ucfirst($GLOBALS['t_attend']['tel']).'</p>  
                         
                         </div>
 
@@ -1559,7 +1560,7 @@ function getallcarduser($cat) {
                 
                     
                     <div class="col-12 justify-content-center text-center" style="margin-top: -10% !important;">
-                      <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important">'.strtolower($GLOBALS['t_admins']['website']).'</small>  
+                      <small class="text-muted" style="font-size: 9px; margin-top: 0rem !important; color: #000 !important">'.strtolower($GLOBALS['t_attend']['website']).'</small>  
                     </div>
                   </div>
           </div>

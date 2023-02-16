@@ -75,7 +75,7 @@
     </a>
   </li>
   <li class="menu-item">
-    <a href="#" class="menu-link">
+    <a href="https://hynitr.com/support" target="_blank" class="menu-link">
       <i class="menu-icon tf-icons bx bx-question-mark"></i>
       <div data-i18n="Form Layouts">Help</div>
     </a>
