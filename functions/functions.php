@@ -662,7 +662,7 @@ function checkattendancetype($qrid, $fullname, $statusdet) {
                 echo '
                 <script>
                 $(toastr.clear());
-                $(toastr.success("Attendance Successful"));
+                $(toastr.success("Attendance checked Successfully"));
                 $("#default").hide();
                 $("#markedout").show();
                 </script>
