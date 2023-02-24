@@ -249,39 +249,85 @@ $(document).ready(function () {
   });
 
 
+   //profile update
+   $("#profchange").click(function () {
 
-    //testchunk
-    $("#testchunk").click(function () {
+    var schoolname     = $("#schoolname").val();
+    var website        = $("#website").val();
+    var alias          = $("#alias").val();
+    var telephone      = $("#telephone").val();
+    var address        = $("#address").val();
+    var blksmnme       = $("#blksmnme").val();
+    var blksmseml      = $("#blksmseml").val();
+    var blkpword       = $("#blkpword").val();
+    var whtkn          = $("#whtkn").val();
+    var intanceid      = $("#intanceid").val();
+    var timein         = $("#timein").val();
 
-      var passport  = $("#filechunk")[0].files[0];
-      var helopb    = "codechunk";
+    if(schoolname == "" || schoolname == null) {
+
+      $(toastr.error("Input your school name"));
+
+    }  else {
+      
+      if(alias == "" || alias == null) {
+
+        $(toastr.error("Input your school alias"));
   
+      } else {
+
+        if(telephone == "" || telephone == null) {
+
+          $(toastr.error("Input your school telephone number"));
     
-              if(passport == "" || passport == null) {
-  
-                $(toastr.error("Kindly provide valid passport"));
-  
+        } else {
+
+          if(address == "" || address == null) {
+
+            $(toastr.error("Input your school address"));
+      
+          } else {
+
+            if(blksmnme == "" || blksmnme == null) {
+
+              $(toastr.error("Input your SMS Name"));
+        
+            } else {
+
+              if(blksmseml == "" || blksmseml == null) {
+
+                $(toastr.error("Input your Bulk SMS Email"));
+          
               } else {
-  
-                $(toastr.clear());
-                $("#testchunk").html("Submitting... Please wait");
-  
-  
-                var formData = new FormData();
-                formData.append("helopb", helopb);
-                formData.append("passport", passport);
-                $.ajax({
-                  url: "functions/init.php",
-                  type: "POST",
-                  data: formData,
-                  processData: false,
-                  contentType: false,
-                  success: function(data) {
-                    $(toastr.success(data));
-                  }
-                });
-  
+
+                if(blkpword == "" || blkpword == null) {
+
+                  $(toastr.error("Input your Bulk SMS Password"));
+            
+                } else {
+
+                  if(timein == "" || timein == null) {
+
+                    $(toastr.error("Input your Resumption time"));
+              
+                  } else {
+
+                     $(toastr.info("Submitting..."));
+                     $.ajax({
+                      type: "post",
+                      url: "functions/init.php",
+                      data: { schoolname: schoolname, website: website, alias: alias, telephone: telephone, address: address, blksmnme: blksmnme, blksmseml: blksmseml, blkpword: blkpword, whtkn: whtkn, intanceid: intanceid, timein: timein },
+                      success: function (data) {
+                        $(toastr.success(data));
+                      },
+                    });
               }
-    });
+            }
+          }
+        }
+      }
+    }
+  }
+});
 
 });

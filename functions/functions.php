@@ -354,6 +354,26 @@ if(isset($_POST['securitykeyy']) && isset($_POST['qrid'])) {
 
 
 
+//update profile
+if(isset($_POST['schoolname']) && isset($_POST['website']) && isset($_POST['alias']) && isset($_POST['telephone']) && isset($_POST['address']) && isset($_POST['blksmnme']) && isset($_POST['blksmseml']) && isset($_POST['blkpwrd']) && isset($_POST['whtkn']) && isset($_POST['intanceid']) && isset($_POST['timein'])) {
+
+    // Clean and escape variables
+    $schoolname = clean(escape($schoolname));
+    $website = clean(escape($website));
+    $alias = clean(escape($alias));
+    $telephone = clean(escape($telephone));
+    $address = clean(escape($address));
+    $blksmnme = clean(escape($blksmnme));
+    $blksmseml = clean(escape($blksmseml));
+    $blkpwrd = clean(escape($blkpwrd));
+    $whtkn = clean(escape($whtkn));
+    $intanceid = clean(escape($intanceid));
+    $timein = clean(escape($timein));
+
+}
+
+
+
 function bulksmsbalance() {
 
             
@@ -1590,30 +1610,5 @@ function getallcarduser($cat) {
 
     }
     
-
-}
-
-if(isset($_POST['helopb']) && isset($_POST['passport'])) {
-
-    echo "hey";
-
-    $file = $_FILES['passport']['tmp_name'];
-    $chunk_size = 1024 * 1024; // 1 MB
-    $handle = fopen($file, 'rb');
-    $file_size = filesize($file);
-    $i = 0;
-
-    while (!feof($handle)) {
-        $chunk = fread($handle, $chunk_size);
-        file_put_contents('chunk_'.$i, $chunk);
-        $i++;
-        $percent_complete = ($i * $chunk_size) / $file_size * 100;
-        echo $percent_complete.'%';
-        ob_flush();
-        flush();
-    }
-
-    fclose($handle);
-    echo 'upload complete';
 
 }

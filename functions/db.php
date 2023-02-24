@@ -1,7 +1,7 @@
 <?php
 //creating the database to use
-//$con = mysqli_connect("localhost","root","","attend");
-$con = mysqli_connect("localhost","hynitr_attend",".UI9?vSrt4NJ","hynitr_attend");
+$con = mysqli_connect("localhost","root","","attend");
+//$con = mysqli_connect("localhost","hynitr_attend",".UI9?vSrt4NJ","hynitr_attend");
 
 function row_count($result) {
 
