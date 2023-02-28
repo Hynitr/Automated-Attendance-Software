@@ -2,10 +2,10 @@
 
 * [🏥 Automated Attendance System (v2.2.0)](README.md)
 
-## Overview
+## Getting Started
 
-* [💡 What we do](overview/what-we-do.md)
-* [✨ Our Features](overview/our-features.md)
+* [⚙ Accessing your Account](getting-started/accessing-your-account.md)
+* [✨ Our Features](getting-started/our-features.md)
 
 ## Product Guides
 
