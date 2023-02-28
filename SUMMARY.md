@@ -6,11 +6,12 @@
 
 * [⚙ Accessing your Account](overview/what-we-do.md)
 * [✨ Your Dashboard](getting-started/your-dashboard.md)
+* [📶 Menu Bar / Side-Bar](getting-started/menu-bar-side-bar.md)
 
-## Product Guides
+## Performing Tasks
 
-* [📪 Making a post](product-guides/making-a-post.md)
-* [📎 Understanding Projects](product-guides/understanding-projects.md)
+* [👪 Registering Users](performing-tasks/registering-users.md)
+* [📎 Understanding Projects](performing-tasks/understanding-projects.md)
 
 ## Fundamentals
 

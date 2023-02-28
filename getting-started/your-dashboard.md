@@ -54,4 +54,4 @@ The information table provide a convenient summary of activities data on your da
 You can always set the resumption time from the profile section of your software. By default, the resumption time for the software is - 7:00am (WAT)
 {% endhint %}
 
-* **Birthdays**
+* **Birthdays:** The software is equipped with an in-built system that sends birthday notifications automatically. The displayed table provides the relevant data for staff/users celebrating their birthdays on the specific day.
