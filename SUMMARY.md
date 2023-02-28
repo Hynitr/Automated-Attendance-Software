@@ -11,7 +11,7 @@
 ## Performing Tasks
 
 * [👪 Registering Users](product-guides/making-a-post.md)
-* [👀 Viewing Users](performing-tasks/viewing-users.md)
+* [👀 Viewing Users](product-guides/understanding-projects.md)
 
 ## Fundamentals
 
