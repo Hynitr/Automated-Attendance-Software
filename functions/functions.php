@@ -355,20 +355,23 @@ if(isset($_POST['securitykeyy']) && isset($_POST['qrid'])) {
 
 
 //update profile
-if(isset($_POST['schoolname']) && isset($_POST['website']) && isset($_POST['alias']) && isset($_POST['telephone']) && isset($_POST['address']) && isset($_POST['blksmnme']) && isset($_POST['blksmseml']) && isset($_POST['blkpwrd']) && isset($_POST['whtkn']) && isset($_POST['intanceid']) && isset($_POST['timein'])) {
-
+if (isset($_POST["schoolname"]) && isset($_POST["website"]) && isset($_POST["alias"]) && isset($_POST["telephone"]) && isset($_POST["address"]) && isset($_POST["blksmnme"]) && isset($_POST["blksmseml"]) && isset($_POST["blkpword"]) && isset($_POST["whtkn"]) && isset($_POST["intanceid"]) && isset($_POST["timein"])) {
+      
     // Clean and escape variables
-    $schoolname = clean(escape($schoolname));
-    $website = clean(escape($website));
-    $alias = clean(escape($alias));
-    $telephone = clean(escape($telephone));
-    $address = clean(escape($address));
-    $blksmnme = clean(escape($blksmnme));
-    $blksmseml = clean(escape($blksmseml));
-    $blkpwrd = clean(escape($blkpwrd));
-    $whtkn = clean(escape($whtkn));
-    $intanceid = clean(escape($intanceid));
-    $timein = clean(escape($timein));
+    $schoolname  = clean(escape($_POST["schoolname"]));
+    $website     = clean(escape($_POST["website"]));
+    $alias       = clean(escape($_POST["alias"]));
+    $telephone   = clean(escape($_POST["telephone"]));
+    $address     = clean(escape($_POST["address"]));
+    $blksmnme    = clean(escape($_POST["blksmnme"]));
+    $blksmseml   = clean(escape($_POST["blksmseml"]));
+    $blkpword    = clean(escape($_POST["blkpword"]));
+    $whtkn       = clean(escape($_POST["whtkn"]));
+    $intanceid   = clean(escape($_POST["intanceid"]));
+    $timein      = clean(escape($_POST["timein"]));
+
+
+    echo '<script>alert("hello")</script>';
 
 }
 
@@ -493,7 +496,7 @@ function getcategoriesbytype($cat) {
                 echo '
                 <tr>
                 <td>'.$row['AttendanceID'].'</td>
-                <td> <img src="upload/passport/'.$row['Passport'].'" alt="'.$row['Last Name'].' '.$row['First Name'].'" class="img-fluid img-responsive mb-2" width="50" /> <br/>
+                <td> <img src="upload/passport/'.$row['Passport'].'" alt="'.$row['Last Name'].' '.$row['First Name'].'" class="img-fluid img-responsive mb-2" width="30" />&nbsp;&nbsp;
                   '.$row['Last Name'].' '.$row['First Name'].'</td>
                 <td>'.date('D, M d, Y', strtotime($row['dob'])).'</td>
                 <td>'.$row['Gender'].'</td>
