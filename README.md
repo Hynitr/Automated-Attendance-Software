@@ -4,19 +4,17 @@ description: Developed by Abolade Greatness. Powered with ❤️ by Hynitr.
 
 # 🏥 Automated Attendance System (v2.2.0)
 
-{% hint style="info" %}
-**Heads Up 🙋‍♂️:** your product docs aren't just a reference of all your features! use them to encourage folks to perform certain actions and discover the value in your product.
-{% endhint %}
-
 ## Overview
 
-Here are a couple of example overviews from products with really great docs:
+Welcome to Hynitr's automated attendance management system documentation where you’ll learn how to use the management system for tracking your organization's attendance in real-time with automated notifications.
 
-> Loom is a video messaging tool that helps you get your message across through instantly shareable videos.
+
+
+## What's New in v2.2.0? 😎
+
+> * **Real-time WhatsApp Notification:**&#x20;
 >
-> With Loom, you can record your camera, microphone, and desktop simultaneously. Your video is then instantly available to share through Loom's patented technology.
->
-> — From the [Loom Docs](https://support.loom.com/hc/en-us/articles/360002158057-What-is-Loom-)
+> With the implementation of a real-time notification system on WhatsApp, parents are now able to ascertain the precise time and date that their wards entered and left the school directly through their registered WhatsApp phone number, which was supplied during the ward registration process on the attendance management system. This innovative approach not only improves efficiency but also helps to reduce costs, which would typically have been associated with the bulk SMS credit charged for sending notifications.
 
 > The Mailchimp Marketing API provides programmatic access to Mailchimp data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more.
 >
