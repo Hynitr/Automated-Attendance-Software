@@ -80,6 +80,8 @@ if(!isset($_GET['ref'])) {
     </div>
     <!-- / Layout wrapper -->
 
+
+    <p id="demo" hidden></p>
     
 
     <!-- Core JS -->

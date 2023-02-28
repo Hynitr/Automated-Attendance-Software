@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-
-
   /*$(document).ajaxStart(function(){
     $(toastr.info("Loading...Please wait"));
   });
@@ -9,10 +7,6 @@ $(document).ready(function () {
     toastr.clear();
     $(toastr.error("Kindly insert your email"));
   });*/
-
-
-
-  
 
   //signin
   $("#lsub").click(function () {
@@ -328,6 +322,7 @@ $(document).ready(function () {
       }
     }
   }
+}
 });
 
 });
