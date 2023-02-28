@@ -44,8 +44,14 @@ The information table provide a convenient summary of activities data on your da
 
 <figure><img src="../.gitbook/assets/image_2023-02-28_234228083.png" alt="Information Table"><figcaption></figcaption></figure>
 
-* Absentees: This table provides a full data of the total number of absentees and latecomers for the current day.&#x20;
+* **Absentees**: This table provides a full data of the total number of absentees and latecomers for the current day.&#x20;
 
 
 
-* Late Comers: This table
+* **Late Comers:** This table provides a full data of the number of late comers who came late to the organization before the set resumption time.
+
+{% hint style="info" %}
+You can always set the resumption time from the profile section of your software. By default, the resumption time for the software is - 7:00am (WAT)
+{% endhint %}
+
+* **Birthdays**
