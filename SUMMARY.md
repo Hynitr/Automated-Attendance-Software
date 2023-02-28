@@ -5,7 +5,7 @@
 ## Getting Started
 
 * [⚙ Accessing your Account](overview/what-we-do.md)
-* [✨ Dashboard](getting-started/dashboard.md)
+* [✨ Your Dashboard](getting-started/your-dashboard.md)
 
 ## Product Guides
 
