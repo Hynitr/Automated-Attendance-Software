@@ -1,6 +1,6 @@
 # Table of contents
 
-* [👋 Welcome to A Product](README.md)
+* [🏥 Automated Attendance System (v2.2.0)](README.md)
 
 ## Overview
 
