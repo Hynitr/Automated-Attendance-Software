@@ -35,3 +35,11 @@ Upon submitting your registration, it is crucial to pay close attention to any e
 After submitting your registration, the user's records are saved to the database. If successful, a confirmation interface is displayed to indicate that the registration process has been completed.
 
 <figure><img src="../.gitbook/assets/image_2023-03-01_001208323.png" alt=""><figcaption></figcaption></figure>
+
+{% hint style="info" %}
+Upon completion of the registration process, you have the option to either continue registering new users by clicking the "Register New User" button, or preview/download the user's ID card by clicking the "Download ID Card" button..
+{% endhint %}
+
+{% hint style="info" %}
+You can always download the user ID card from the "View" component of the [menu-bar/sidebar](../getting-started/menu-bar-side-bar.md)
+{% endhint %}
