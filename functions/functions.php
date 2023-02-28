@@ -320,7 +320,7 @@ if(isset($_POST['delattdid']) && isset($_POST['roletype'])) {
         $res = query($sql);
 
 
-         //create notification
+        //create notification
         $notifydata = 'Deleted Successfully';
         notifyuser($notifydata);
             
@@ -370,8 +370,24 @@ if (isset($_POST["schoolname"]) && isset($_POST["website"]) && isset($_POST["ali
     $intanceid   = clean(escape($_POST["intanceid"]));
     $timein      = clean(escape($_POST["timein"]));
 
+    $user        = $_SESSION['login'];
 
-    echo '<script>alert("hello")</script>';
+    //update user records
+    $sql = "UPDATE `admin` SET `school` = '$schoolname', `website` = '$website', `alias` = '$alias', `tel` = '$telephone', `addr` = '$address', `blksmsname` = '$blksmnme', `blkuser` = '$blksmseml', `blkpword` = '$blkpword', `token` = '$whtkn', `instanceid` = '$intanceid', `expectedtimein` = '$timein' WHERE `Admin No.` = '$user'";
+    $res = query($sql);
+    
+
+     //create notification
+     $notifydata = 'Updated Successfully';
+     notifyuser($notifydata);
+         
+     echo '
+     <script>
+     $(toastr.clear());
+     $(toastr.success("Updating..."));
+     location.assign("./profile");
+     </script>
+     ';
 
 }
 
