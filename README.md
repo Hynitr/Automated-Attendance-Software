@@ -15,10 +15,18 @@ Welcome to Hynitr's automated attendance management system documentation where y
 > * **Real-time WhatsApp Notification:**&#x20;
 >
 > With the implementation of a real-time notification system on WhatsApp, parents are now able to ascertain the precise time and date that their wards entered and left the school directly through their registered WhatsApp phone number, which was supplied during the ward registration process on the attendance management system. This innovative approach not only improves efficiency but also helps to reduce costs, which would typically have been associated with the bulk SMS credit charged for sending notifications.
-
-> The Mailchimp Marketing API provides programmatic access to Mailchimp data and functionality, allowing developers to build custom features to do things like sync email activity and campaign analytics with their database, manage audiences and campaigns, and more.
 >
-> — From the [Mailchimp Marketing API docs](https://mailchimp.com/developer/marketing/docs/fundamentals/)
+>
+>
+> * **Bulk SMS Balance**
+>
+> Administrators can now view their current bulk SMS credit directly from the attendance dashboard without the need to access the bulk SMS platform. This feature facilitates the determination of the remaining bulk SMS credits available for sending messages and enables administrators to ascertain whether parents will receive SMS notifications.
+
+>
+
+{% hint style="warning" %}
+In the event that the bulk SMS credit is low or depleted, SMS notifications will not be sent to parents. It is advisable to consistently monitor the attendance dashboard to obtain up-to-date information on the status of the bulk SMS credit.
+{% endhint %}
 
 ## Quick links
 
