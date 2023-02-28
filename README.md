@@ -1,3 +1,7 @@
+---
+description: Developed by Abolade Greatness. Powered with ❤️ by Hynitr.
+---
+
 # 🏥 Automated Attendance System (v2.2.0)
 
 {% hint style="info" %}
