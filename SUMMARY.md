@@ -4,8 +4,8 @@
 
 ## Getting Started
 
-* [⚙ Accessing your Account](getting-started/accessing-your-account.md)
-* [✨ Our Features](getting-started/our-features.md)
+* [⚙ Accessing your Account](overview/what-we-do.md)
+* [✨ Our Features](overview/our-features.md)
 
 ## Product Guides
 
