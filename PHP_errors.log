@@ -1,8 +1,0 @@
-[28-Feb-2023 20:53:42 Africa/Lagos] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'hynitr_attend'@'localhost' (using password: YES) in C:\xampp\htdocs\Softwares\Automated-Attendance-Software\functions\db.php:4
-Stack trace:
-#0 C:\xampp\htdocs\Softwares\Automated-Attendance-Software\functions\db.php(4): mysqli_connect('localhost', 'hynitr_attend', Object(SensitiveParameterValue), 'hynitr_attend')
-#1 C:\xampp\htdocs\Softwares\Automated-Attendance-Software\functions\init.php(6): include('C:\\xampp\\htdocs...')
-#2 C:\xampp\htdocs\Softwares\Automated-Attendance-Software\component\head.php(1): include('C:\\xampp\\htdocs...')
-#3 C:\xampp\htdocs\Softwares\Automated-Attendance-Software\profile.php(1): include('C:\\xampp\\htdocs...')
-#4 {main}
-  thrown in C:\xampp\htdocs\Softwares\Automated-Attendance-Software\functions\db.php on line 4
