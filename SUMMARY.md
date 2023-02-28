@@ -10,8 +10,8 @@
 
 ## Performing Tasks
 
-* [👪 Registering Users](performing-tasks/registering-users.md)
-* [📎 Understanding Projects](performing-tasks/understanding-projects.md)
+* [👪 Registering Users](product-guides/making-a-post.md)
+* [📎 Understanding Projects](product-guides/understanding-projects.md)
 
 ## Fundamentals
 

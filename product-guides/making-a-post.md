@@ -25,3 +25,13 @@ Filling in the "Telephone 1" field is of utmost importance, while "Telephone 2" 
 {% hint style="warning" %}
 The software only allows for JPEG and JPG image types when uploading student passport photos. Other image types are not supported.
 {% endhint %}
+
+## Step 2 - Click on the "Submit Details" button to submit
+
+{% hint style="warning" %}
+Upon submitting your registration, it is crucial to pay close attention to any error notifications that may appear. These notifications will inform you whether your registration was successful or not.
+{% endhint %}
+
+After submitting your registration, the user's records are saved to the database. If successful, a confirmation interface is displayed to indicate that the registration process has been completed.
+
+<figure><img src="../.gitbook/assets/image_2023-03-01_001208323.png" alt=""><figcaption></figcaption></figure>
