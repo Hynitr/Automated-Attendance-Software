@@ -13,7 +13,6 @@
 * [👪 Registering Users](product-guides/making-a-post.md)
 * [👀 Viewing Users](product-guides/understanding-projects.md)
 * [✏ Editing Users Details](performing-tasks/editing-users-details.md)
-* [❌ Deleting Users](performing-tasks/deleting-users.md)
 
 ## Fundamentals
 
