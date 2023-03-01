@@ -10,17 +10,17 @@
 
 ## Registrations  and Users
 
-* [👪 Registering Users](registrations-and-users/registering-users.md)
-* [👀 Viewing Users](registrations-and-users/viewing-users.md)
-* [✏ Editing Users Details](registrations-and-users/editing-users-details.md)
-* [❌ Deleting Users](registrations-and-users/deleting-users.md)
+* [👪 Registering Users](product-guides/making-a-post.md)
+* [👀 Viewing Users](product-guides/understanding-projects.md)
+* [✏ Editing Users Details](performing-tasks/editing-users-details.md)
+* [❌ Deleting Users](performing-tasks/deleting-users.md)
 
 ## ID Cards
 
-* [💳 Generating Single ID Card](id-cards/generating-single-id-card.md)
+* [💳 Generating Single ID Card](fundamentals/getting-set-up/README.md)
 * [🗃 Generating Bulk ID Cards](id-cards/generating-bulk-id-cards.md)
 
 ## Taking/Tracking Attendance
 
-* [🎨 For Designers](taking-tracking-attendance/for-designers.md)
-* [🖥 For Developers](taking-tracking-attendance/for-developers.md)
+* [🎨 For Designers](use-cases/for-designers.md)
+* [🖥 For Developers](use-cases/for-developers.md)
