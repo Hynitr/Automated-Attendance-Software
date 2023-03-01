@@ -1,7 +1,7 @@
 # ❌ Deleting Users
 
 {% hint style="warning" %}
-Please ensure that you have followed all the necessary steps outlined in the section titled - [Viewing Users](../product-guides/understanding-projects.md) before proceeding with any actions in this section.
+Please ensure that you have followed all the necessary steps outlined in the section titled - [Viewing Users](viewing-users.md) before proceeding with any actions in this section.
 {% endhint %}
 
 ## Step 1 - Click on the three vertical dots located at the end of the user's information that you intend to edit.

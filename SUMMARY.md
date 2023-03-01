@@ -8,20 +8,19 @@
 * [✨ Your Dashboard](getting-started/your-dashboard.md)
 * [📶 Menu Bar / Side-Bar](getting-started/menu-bar-side-bar.md)
 
-## Performing Tasks
+## Registrations  and Users
 
-* [👪 Registering Users](product-guides/making-a-post.md)
-* [👀 Viewing Users](product-guides/understanding-projects.md)
-* [✏ Editing Users Details](performing-tasks/editing-users-details.md)
-* [❌ Deleting Users](performing-tasks/deleting-users.md)
+* [👪 Registering Users](registrations-and-users/registering-users.md)
+* [👀 Viewing Users](registrations-and-users/viewing-users.md)
+* [✏ Editing Users Details](registrations-and-users/editing-users-details.md)
+* [❌ Deleting Users](registrations-and-users/deleting-users.md)
 
-## Fundamentals
+## ID Cards
 
-* [🛠 Getting set up](fundamentals/getting-set-up/README.md)
-  * [📝 Setting permissions](fundamentals/getting-set-up/setting-permissions.md)
-  * [🧑 Inviting Members](fundamentals/getting-set-up/inviting-members.md)
+* [💳 Generating Single ID Card](id-cards/generating-single-id-card.md)
+* [🗃 Generating Bulk ID Cards](id-cards/generating-bulk-id-cards.md)
 
-## Use Cases
+## Taking/Tracking Attendance
 
-* [🎨 For Designers](use-cases/for-designers.md)
-* [🖥 For Developers](use-cases/for-developers.md)
+* [🎨 For Designers](taking-tracking-attendance/for-designers.md)
+* [🖥 For Developers](taking-tracking-attendance/for-developers.md)
