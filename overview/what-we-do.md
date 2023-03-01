@@ -2,7 +2,7 @@
 description: Learn how to get access to your attendance management system
 ---
 
-# ⚙ Accessing your Account
+# 🔐 Accessing your Account
 
 {% hint style="info" %}
 Your access to your attendance management system is usually in this format: _**https://attendance.yourwebsitename.com.**_

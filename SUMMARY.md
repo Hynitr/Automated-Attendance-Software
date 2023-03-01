@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-* [⚙ Accessing your Account](overview/what-we-do.md)
+* [🔐 Accessing your Account](overview/what-we-do.md)
 * [✨ Your Dashboard](getting-started/your-dashboard.md)
 * [📶 Menu Bar / Side-Bar](getting-started/menu-bar-side-bar.md)
 
@@ -12,6 +12,8 @@
 
 * [👪 Registering Users](product-guides/making-a-post.md)
 * [👀 Viewing Users](product-guides/understanding-projects.md)
+* [✏ Editing Users Details](performing-tasks/editing-users-details.md)
+* [❌ Deleting Users](performing-tasks/deleting-users.md)
 
 ## Fundamentals
 
