@@ -22,5 +22,5 @@
 
 ## Taking/Tracking Attendance
 
-* [⌛ Tracking Attendance](taking-tracking-attendance/tracking-attendance.md)
-* [🖥 Attendance Log](taking-tracking-attendance/attendance-log.md)
+* [⌛ Tracking Attendance](use-cases/for-designers.md)
+* [🖥 Attendance Log](use-cases/for-developers.md)
