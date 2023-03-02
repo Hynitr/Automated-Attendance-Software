@@ -13,16 +13,16 @@
 * [✨ Your Dashboard](getting-started/your-dashboard.md)
 * [📶 Menu Bar / Side-Bar](getting-started/menu-bar-side-bar.md)
 
+## Enabling Pre-requisites&#x20;
+
+* [🛠 Updating Your Software Settings](enabling-pre-requisites/updating-your-software-settings.md)
+
 ## Registrations  and Users
 
 * [👪 Registering Users](product-guides/making-a-post.md)
 * [👀 Viewing Users](product-guides/understanding-projects.md)
 * [✏ Editing Users Details](performing-tasks/editing-users-details.md)
 * [❌ Deleting Users](performing-tasks/deleting-users.md)
-
-## Enabling Pre-requisites&#x20;
-
-* [🛠 Updating Your Software Settings](enabling-pre-requisites/updating-your-software-settings.md)
 
 ## ID Cards
 

@@ -23,7 +23,7 @@ Begin your process by creating a free account on Nigeria Bulk SMS Platform using
 
 ## Step 2 - Activate your account
 
-We kindly request that you confirm your email address by clicking on the link sent to your email inbox by Nigeria Bulk SMS. This will activate your account and enable you to start using the service. Please note that the confirmation process is usually instant.
+Confirm your email address by clicking on the link sent to your email inbox by Nigeria Bulk SMS. This will activate your account and enable you to start using the service. Please note that the confirmation process is usually instant.
 
 ## Step 3 - Fund your account
 
@@ -35,6 +35,10 @@ You can fund your account by using this link - [https://portal.nigeriabulksms.co
 
 {% hint style="info" %}
 Upon connecting your BULK SMS platform with the attendance software, our default funding amount of NGN1,000 will be automatically credited to your account.
+
+
+
+You can always request your account to be funded via; [https://hynitr.com/support](https://hynitr.com/support)
 {% endhint %}
 
 {% hint style="warning" %}
