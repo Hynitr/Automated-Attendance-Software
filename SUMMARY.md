@@ -2,6 +2,11 @@
 
 * [🏥 Automated Attendance System (v2.2.0)](README.md)
 
+## Pre-requisite
+
+* [📩 Creating Your Bulk SMS Account](pre-requisite/creating-your-bulk-sms-account.md)
+* [🟢 Enabling your WhatsApp notifications](pre-requisite/enabling-your-whatsapp-notifications.md)
+
 ## Getting Started
 
 * [🔐 Accessing your Account](overview/what-we-do.md)
@@ -14,6 +19,10 @@
 * [👀 Viewing Users](product-guides/understanding-projects.md)
 * [✏ Editing Users Details](performing-tasks/editing-users-details.md)
 * [❌ Deleting Users](performing-tasks/deleting-users.md)
+
+## Enabling Pre-requisites&#x20;
+
+* [🛠 Updating Your Software Settings](enabling-pre-requisites/updating-your-software-settings.md)
 
 ## ID Cards
 
